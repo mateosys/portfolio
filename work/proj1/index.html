@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="Project No. 1" content="Agenda Module case overview" />
+
+    <title>Dynamic Modules | Matthew Sustaita</title>
+
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body
+    class="bg-olive-400 dark:bg-olive-950 dark:text-olive-50 text-olive-800 antialiased leading-8"
+  >
+    <main
+      class="mx-auto grid max-w-6xl grid-cols-1 items-start gap-12 px-6 py-20 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-16 lg:py-40"
+    >
+      <!-- Sticky sidebar navigation -->
+      <aside class="lg:sticky lg:top-8">
+        <nav aria-label="Project navigation">
+          <a class="underline text-sm uppercase tracking-wider underline-offset-8 hover:text-olive-500 transition " href="/index.html ">⇠ Go Back</a>
+          <p class="mt-6 mb-3 text-sm font-bold uppercase tracking-wider">
+            Index
+          </p>
+
+          <ul class="border-l border-olive-800/30 dark:border-olive-50/30">
+            <li>
+              <a
+                class="-ml-px block border-l-2 border-transparent px-4 py-2 transition-colors hover:border-current hover:bg-olive-800/10 focus-visible:border-current focus-visible:outline-none dark:hover:bg-olive-50/10"
+                href="#branding"
+              >
+                Dynamic Publishing System
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="-ml-px block border-l-2 border-transparent px-4 py-2 transition-colors hover:border-current hover:bg-olive-800/10 focus-visible:border-current focus-visible:outline-none dark:hover:bg-olive-50/10"
+                href="#tia-hub"
+              >
+               Dynamic Sponsor System
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <!-- Page content -->
+      <div class="min-w-0 space-y-32">
+        <section class="scroll-mt-8">
+          <h1 class="text-3xl font-bold tracking-tight text-balance">Dynamic Publishing System</h1>
+
+          <script>
+            window.eventModulePublishedData = null;
+            window.eventModuleFeedLoaded = false;
+
+            window.loadEventModuleData = function (data) {
+              window.eventModulePublishedData = data;
+              window.eventModuleFeedLoaded = true;
+              window.dispatchEvent(
+                new CustomEvent("event-module-data-loaded", { detail: data }),
+              );
+            };
+          </script>
+
+          <script
+            defer
+            src="https://script.google.com/macros/s/AKfycbzWHeWS_r6AQX8Wovxtc5QnsJd9e3A8rtbnflE3hLB6AZXUp11btrX8n6rwAQvqoxfHww/exec?module=open-house-2026&amp;callback=loadEventModuleData"
+          ></script>
+
+          <section
+            class="mx-auto   py-8 max-w-full motion-delay-200 intersect:motion-preset-fade-sm intersect-once"
+            id="agenda"
+            x-data="eventModule()"
+            x-init="init()"
+          >
+            <div
+              class="flex sm:flex-row flex-col justify-between sm:items-end gap-3 mb-5"
+            >
+              <div>
+                <p class="text-mist-600 intro">Agenda at a glance</p>
+                <h1>
+                  <span
+                    class="font-semibold text-4xl sm:text-5xl text-balance tracking-tight"
+                    x-text="data.eventName"
+                  ></span>
+                </h1>
+              </div>
+              <p
+                class="text-slate-500 text-sm"
+                x-show="feedStatus"
+                x-text="feedStatus"
+              ></p>
+            </div>
+
+            <div class="border-accent tabs md:tabs-xl" role="tablist">
+              <button
+                type="button"
+                class="tab rounded-lg"
+                :class="activeTab === 'schedule' ? 'tab-active bg-olive-100 dark:bg-olive-800 mb-2' : ''"
+                @click="openTab('schedule')"
+                role="tab"
+                :aria-selected="activeTab === 'schedule'"
+              >
+                <div
+                  class="me-2 size-4 text-mist-500 ph ph-[clock--fill]"
+                ></div>
+                Schedule
+              </button>
+
+              <button
+                type="button"
+                class="tab rounded-lg"
+                :class="activeTab === 'speakers' ? 'tab-active bg-olive-100 dark:bg-olive-800 mb-2' : ''"
+                @click="openTab('speakers')"
+                role="tab"
+                :aria-selected="activeTab === 'speakers'"
+              >
+                <div class="me-2 size-4 text-mist-500 ph ph-[user--fill]"></div>
+                Speakers
+              </button>
+
+              <button
+                type="button "
+                class="tab rounded-lg"
+                :class="activeTab === 'location' ? 'tab-active bg-olive-100 dark:bg-olive-800 mb-2' : ''"
+                @click="openTab('location')"
+                role="tab"
+                :aria-selected="activeTab === 'location'"
+              >
+                <div
+                  class="me-2 size-4 text-mist-500 ph ph-[compass--fill]"
+                ></div>
+                Hotel &amp; Location
+              </button>
+            </div>
+
+            <template x-if="mounted.schedule">
+              <section x-show="activeTab === 'schedule'" x-cloak>
+                <section
+                  class="bg-olive-100 dark:bg-olive-800 shadow-sm p-6 sm:p-8 border border-olive-200 dark:border-olive-600 rounded-lg"
+                >
+                  <div>
+                    <p
+                      class="font-semibold text-mist-600 dark:text-mist-100 text-sm uppercase tracking-wide"
+                    >
+                      Agenda
+                    </p>
+                    <h2
+                      class="mt-2 font-bold text-mist-950 dark:text-mist-100 text-2xl"
+                    >
+                      Schedule
+                    </h2>
+                  </div>
+
+                  <div
+                    class="flex gap-2 mt-6 pb-1 border-slate-200 border-b overflow-x-auto"
+                  >
+                    <template
+                      :key="day.id"
+                      x-for="(day, index) in data.schedule"
+                    >
+                      <button
+                        :class="activeDay === index ? 'border-mist-500 text-mist-600 dark:text-mist-100 ' : 'border-transparent text-slate-500 hover:text-slate-700'"
+                        class="px-4 py-2 border-b-2 font-medium text-sm whitespace-nowrap transition-colors duration-150"
+                        type="button"
+                        @click="activeDay = index"
+                      >
+                        <span x-text="day.name || `Day ${index + 1}`"></span>
+                        <span class="ml-1 text-xs" x-text="day.date"></span>
+                      </button>
+                    </template>
+                  </div>
+
+                  <div class="space-y-4 mt-6">
+                    <template
+                      :key="session.id"
+                      x-for="session in currentSessions()"
+                    >
+                      <div
+                        class="flex gap-4 bg-olive-50 dark:bg-olive-300 p-4 rounded-lg"
+                      >
+                        <div
+                          class="min-w-20 font-semibold text-slate-500 text-sm"
+                          x-text="session.time"
+                        ></div>
+                        <div>
+                          <h3
+                            class="font-semibold text-mist-950"
+                            x-text="session.title"
+                          ></h3>
+                          <p
+                            class="mt-1 text-slate-600 text-sm leading-6"
+                            x-text="session.description"
+                          ></p>
+                        </div>
+                      </div>
+                    </template>
+
+                    <div
+                      class="py-8 text-slate-400 text-center"
+                      x-show="!currentSessions().length"
+                    >
+                      No schedule sessions are available yet.
+                    </div>
+                  </div>
+
+                  <div
+                    class="flex justify-between mt-6 pt-4 border-slate-200 border-t"
+                    x-show="data.schedule.length > 1"
+                  >
+                    <button
+                      class="text-mist-500 hover:text-mist-700 text-sm transition-colors duration-150"
+                      type="button"
+                      @click="previousDay()"
+                    >
+                      Previous Day
+                    </button>
+                    <span
+                      class="text-slate-500 text-sm"
+                      x-text="`Day ${activeDay + 1} of ${data.schedule.length}`"
+                    ></span>
+                    <button
+                      class="text-mist-500 hover:text-mist-700 text-sm transition-colors duration-150"
+                      type="button"
+                      @click="nextDay()"
+                    >
+                      Next Day
+                    </button>
+                  </div>
+                </section>
+              </section>
+            </template>
+
+            <template x-if="mounted.speakers">
+              <section x-show="activeTab === 'speakers'" x-cloak>
+                <section
+                  class="bg-olive-100 dark:bg-olive-800 border border-olive-200 dark:border-olive-600 p-0 sm:p-4 intersect:motion-preset-fade-sm rounded-lg"
+                >
+                  <div
+                    class="gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+                  >
+                    <template
+                      :key="speaker.id"
+                      x-for="speaker in data.speakers"
+                    >
+                      <article
+                        class="bg-olive-50 dark:bg-olive-600 shadow-sm hover:shadow-md transition-shadow duration-150 card"
+                      >
+                        <figure class="bg-mist-600 h-1/3">
+                          <img
+                            :alt="speaker.name"
+                            :src="speaker.image"
+                            class="w-full h-full object-cover"
+                            decoding="async"
+                            loading="lazy"
+                            onerror="
+                              this.src =
+                                'https://placehold.co/600x400/e2e8f0/64748b?text=Speaker'
+                            "
+                          />
+                        </figure>
+                        <div class="card-body">
+                          <h2 class="card-title">
+                            <span x-text="speaker.name"></span>
+                            <span
+                              class="badge badge-secondary"
+                              x-show="speaker.badge"
+                              x-text="speaker.badge"
+                            ></span>
+                          </h2>
+                          <p class="/50" x-text="speaker.role"></p>
+                          <p class="text-pretty" x-text="speaker.bio"></p>
+                        </div>
+                      </article>
+                    </template>
+                  </div>
+
+                  <div
+                    class="py-8 text-slate-400 align-text-top"
+                    x-show="!data.speakers.length"
+                  >
+                    No speakers are available yet.
+                  </div>
+                </section>
+              </section>
+            </template>
+
+            <template x-if="mounted.location">
+              <section x-show="activeTab === 'location'" x-cloak>
+                <section
+                  class="p-0 sm:p-4 rounded-lg bg-olive-50 dark:bg-olive-800 border border-olive-200 dark:border-olive-600"
+                  id="location"
+                >
+                  <h2
+                    class="mb-4 font-bold text-4xl text-center tracking-tight"
+                  >
+                    Venue Location
+                  </h2>
+
+                  <div
+                    class="bg-olive-50 dark:bg-olive-600 border-olive-200 shadow-sm card lg:card-side"
+                  >
+                    <figure class="lg:w-1/2">
+                      <template x-if="data.venue.mapEmbedUrl">
+                        <iframe
+                          :src="data.venue.mapEmbedUrl"
+                          allowfullscreen=""
+                          height="350"
+                          loading="lazy"
+                          referrerpolicy="no-referrer-when-downgrade"
+                          style="border: 0"
+                          width="100%"
+                        ></iframe>
+                      </template>
+
+                      <div
+                        class="flex justify-center items-center bg-slate-100 w-full h-87.5 text-slate-400 text-sm"
+                        x-show="!data.venue.mapEmbedUrl"
+                      >
+                        Map embed not available.
+                      </div>
+                    </figure>
+
+                    <div class="card-body">
+                      <div
+                        class="flex flex-row justify-normal items-center gap-2"
+                      >
+                        <span
+                          class="w-10 h-10 text-mist-600 dark:text-mist-50 ph ph-[map-pin-area--fill]"
+                        ></span>
+                        <h3>Address</h3>
+                      </div>
+
+                      <p class="text-xl" x-text="data.venue.name"></p>
+                      <p class="italic lead" x-text="data.venue.address"></p>
+
+                      <div
+                        class="flex flex-row justify-normal items-center gap-2"
+                      >
+                        <span
+                          class="w-10 h-10 text-mist-600 dark:text-mist-50 ph ph-[phone--fill]"
+                        ></span>
+                        <p class="text-xl" x-text="data.venue.phone"></p>
+                      </div>
+
+                      <div class="justify-start card-actions">
+                        <p
+                          class="bg-amber-50 dark:bg-amber-800 p-3 rounded-lg footnote"
+                          x-text="data.venue.note"
+                        ></p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <section class="px-0 sm:px-4 lg:px-8 py-16">
+                    <div class="mx-auto max-w-7xl">
+                      <div class="mb-10 text-center">
+                        <h2 class="font-bold text-3xl md:text-4xl">
+                          Hotel Reservations
+                        </h2>
+                      </div>
+
+                      <div class="gap-6 grid md:grid-cols-2 lg:grid-cols-3">
+                        <template :key="hotel.id" x-for="hotel in data.hotels">
+                          <article
+                            class="shadow-md border hover:shadow-lg transition-shadow duration-150 card"
+                          >
+                            <figure class="h-48">
+                              <img
+                                :alt="hotel.name"
+                                :src="hotel.image"
+                                class="w-full h-full object-cover"
+                                loading="lazy"
+                                decoding="async"
+                                onerror="
+                                  this.src =
+                                    'https://placehold.co/600x400/e2e8f0/64748b?text=Hotel+Booking'
+                                "
+                              />
+                            </figure>
+                            <div class="p-5 card-body">
+                              <h3
+                                class="text-lg card-title"
+                                x-text="hotel.name"
+                              ></h3>
+                              <p class="text-sm" x-text="hotel.address"></p>
+                              <p
+                                class="font-semibold badge badge-accent"
+                                x-show="hotel.code"
+                                x-text="`Code: ${hotel.code}`"
+                              ></p>
+                              <div class="justify-end mt-3 card-actions">
+                                <a
+                                  :href="hotel.bookingUrl || '#'"
+                                  class="btn btn-sm"
+                                  >Book Now</a
+                                >
+                              </div>
+                            </div>
+                          </article>
+                        </template>
+                      </div>
+
+                      <div
+                        class="py-8 text-slate-400 text-center"
+                        x-show="!data.hotels.length"
+                      >
+                        No hotel reservations are available yet.
+                      </div>
+                    </div>
+                  </section>
+                </section>
+              </section>
+            </template>
+          </section>
+
+          <script>
+            const eventModuleDefaults = {
+              version: 2,
+              moduleId: "fallback",
+              eventName: "Event Loading",
+              schedule: [
+                {
+                  id: "fallback-day-1",
+                  name: "Day 1",
+                  date: "",
+                  sessions: [
+                    {
+                      id: "fallback-session-1",
+                      time: "9:00 AM",
+                      title: "Loading Schedule",
+                      description: "Please be patient.",
+                    },
+                    {
+                      id: "fallback-session-2",
+                      time: "9:30 AM",
+                      title: "Loading Schedule",
+                      description: "Please be patient.",
+                    },
+                  ],
+                },
+              ],
+              speakers: [],
+              venue: {
+                name: "Loading Location",
+                address: "",
+                phone: "",
+                mapEmbedUrl: "",
+                note: "",
+              },
+              hotels: [],
+            };
+
+            function cloneDefaults() {
+              return JSON.parse(JSON.stringify(eventModuleDefaults));
+            }
+
+            function eventModule() {
+              return {
+                activeDay: 0,
+                activeTab: "schedule",
+                mounted: {
+                  schedule: true,
+                  speakers: false,
+                  location: false,
+                },
+                feedStatus: "Loading content...",
+                data: cloneDefaults(),
+
+                init() {
+                  if (window.eventModulePublishedData) {
+                    this.data = this.normalizeData(
+                      window.eventModulePublishedData,
+                    );
+                    this.feedStatus = "";
+                    return;
+                  }
+
+                  window.addEventListener(
+                    "event-module-data-loaded",
+                    (event) => {
+                      this.data = this.normalizeData(event.detail);
+                      this.feedStatus = "";
+                    },
+                    { once: true },
+                  );
+
+                  window.setTimeout(() => {
+                    if (!window.eventModuleFeedLoaded) {
+                      this.feedStatus = "Using fallback content.";
+                    }
+                  }, 2500);
+                },
+
+                openTab(tab) {
+                  this.activeTab = tab;
+                  this.mounted[tab] = true;
+                },
+
+                currentSessions() {
+                  return this.data.schedule[this.activeDay]?.sessions || [];
+                },
+
+                previousDay() {
+                  if (!this.data.schedule.length) return;
+                  this.activeDay =
+                    this.activeDay > 0
+                      ? this.activeDay - 1
+                      : this.data.schedule.length - 1;
+                },
+
+                nextDay() {
+                  if (!this.data.schedule.length) return;
+                  this.activeDay =
+                    this.activeDay < this.data.schedule.length - 1
+                      ? this.activeDay + 1
+                      : 0;
+                },
+
+                normalizeData(incoming) {
+                  const defaults = cloneDefaults();
+                  const source = incoming || {};
+                  const normalized = {
+                    ...defaults,
+                    ...source,
+                    venue: {
+                      ...defaults.venue,
+                      ...(source.venue || {}),
+                    },
+                  };
+
+                  normalized.schedule = (
+                    source.schedule || defaults.schedule
+                  ).map((day, dayIndex) => ({
+                    id: day.id || `day-${dayIndex + 1}`,
+                    name: day.name || `Day ${dayIndex + 1}`,
+                    date: day.date || "",
+                    sessions: (day.sessions || day.schedule || []).map(
+                      (session, sessionIndex) => ({
+                        id:
+                          session.id ||
+                          `session-${dayIndex + 1}-${sessionIndex + 1}`,
+                        time: session.time || "",
+                        title: session.title || "Untitled Session",
+                        description: session.description || "",
+                      }),
+                    ),
+                  }));
+
+                  normalized.speakers = (source.speakers || []).map(
+                    (speaker, index) => ({
+                      id: speaker.id || `speaker-${index + 1}`,
+                      name: speaker.name || "Speaker Name",
+                      role: speaker.role || "",
+                      badge: speaker.badge || "",
+                      image: speaker.image || "",
+                      bio: speaker.bio || "",
+                    }),
+                  );
+
+                  normalized.hotels = (source.hotels || []).map(
+                    (hotel, index) => ({
+                      id: hotel.id || `hotel-${index + 1}`,
+                      name: hotel.name || "Hotel Name",
+                      address: hotel.address || "",
+                      code: hotel.code || "",
+                      image: hotel.image || "",
+                      bookingUrl: hotel.bookingUrl || "#",
+                    }),
+                  );
+
+                  this.activeDay = Math.min(
+                    this.activeDay,
+                    Math.max(0, normalized.schedule.length - 1),
+                  );
+                  return normalized;
+                },
+              };
+            }
+          </script>
+          <h2 class="text-xl">
+            The challenge: Keeping up with constant agenda updates
+          </h2>
+          <p class="text-balance mt-2">
+            At Region One ESC, workshops, events, and conferences take place
+            throughout the week. As each conference approached, staff regularly
+            updated dates, times, speakers, venues and hotel discounts across
+            conference websites. Initially, each department assigned a lead to
+            update its own Google Site. Because the sites lacked shared
+            branding, colors and information hierarchy, web, and print materials
+            often contained conflicting information.
+          </p>
+          <h2 class="text-xl mt-6">
+            The Solution: The Agenda-at-a-glance module
+          </h2>
+          <p class="text-balance mt-2">
+            To address the problem, I created the Agenda-at-a-Glance module, an
+            all-in-one, tabbed element designed to house the critical
+            information for each conference. The module could be placed on any
+            page and, once implemented, became a familiar feature that users
+            came to expect. Eventually, people began asking,
+            <span class="italic"
+              >“When will the Agenda-at-a-Glance be ready?”</span
+            >
+          </p>
+          <h2 class="text-xl mt-3">First Hurdle: Nontechnical Competency</h2>
+          <p class="text-balance mt-2">
+            The initial version of the module was static. Although many
+            department web leads were comfortable working with rich media in a
+            content management system, they were not technical staff with
+            experience in web development. That limited adoption, created a
+            queue of review requests, and brought the organization back to the
+            original problem: slow, inconsistent updates.
+          </p>
+
+          <h3 class="text-xl mt-3">The Solution: Using Google Sheets</h3>
+          <p class="text-balance mt-2">
+            I needed a way for users to update conference information without
+            requiring them to work directly with code. Drawing on a previous
+            Webflow project, I developed a system that used Google Sheets as the
+            data source. The module reads a publicly published Google Sheet in
+            CSV format and uses that information to populate the
+            Agenda-at-a-Glance interface. Department leads can update the sheet
+            without touching the code, while my team retains immediate access to
+            the key information and can make changes quickly when necessary.
+            <br />
+            <span class="font-bold"
+              >The agenda module was added to 30+ conference pages, it took much
+              less time to review as I only needed to inspect a couple of cells.
+              Ultimately dev time was cut to 1/4th of the time it took to copy
+              and past ordered lists and containers.</span
+            >
+          </p>
+          <br />
+          <a
+            class="underline text-xl"
+            target="_blank"
+            href="https://esc1net.finalsite.com/cyber-security-summit/agenda"
+            >View a live example</a
+          >
+        </section>
+      </div>
+    </main>
+  </body>
+  <footer>
+    <p class="text-xs px-4 py-4 mx-auto">Designed with Vite + Tailwind!</p>
+  </footer>
+</html>

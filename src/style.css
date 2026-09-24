@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@plugin 'phosphor-icons-tailwindcss';
+@plugin "daisyui";
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+}
