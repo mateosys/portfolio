@@ -7,3 +7,54 @@
     @apply scroll-smooth;
   }
 }
+
+@layer components {
+ 
+  .bg-grid {
+    
+    opacity: 0.8;
+    background-image: radial-gradient(
+      ellipse 2px 1px at center,
+      #2b2b22 0.84px,
+      transparent 0.84px
+    );
+    background-size: 10.5px 10.5px;
+    /* mask-image: radial-gradient(
+      ellipse 75% 55% at center,
+      transparent 0%,
+      transparent 52%,
+      rgb(0 0 0 / 0.6) 100%
+    ); */
+    
+    /* -webkit-mask-image: radial-gradient(
+      ellipse 75% 55% at center,
+      transparent 0%,
+      transparent 52%,
+      rgb(0 0 0 / 0.6) 100%
+    ); */
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+  }
+
+  
+
+  
+}
+
+@layer utilities {
+  .mask-rect-vignette {
+    -webkit-mask-image:
+      linear-gradient(to bottom, black, transparent 5%),
+      linear-gradient(to top, black, transparent 5%),
+      linear-gradient(to right, black, transparent 5%),
+      linear-gradient(to left, black, transparent 5%);
+
+    mask-image:
+      linear-gradient(to bottom, black, transparent 5%),
+      linear-gradient(to top, black, transparent 5%),
+      linear-gradient(to right, black, transparent 5%),
+      linear-gradient(to left, black, transparent 5%);
+  }
+}
