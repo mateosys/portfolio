@@ -81,13 +81,19 @@ async function loadJournal() {
     console.error('Unable to parse journal entries, the stranger seems to have obfuscated the planchette :', error)
 
     quoteElement.textContent =
-      'The daily entry could not be loaded. The Stranger is experience a cognitive fog..'
+      'The daily entry could not be loaded. The Stranger is experiencing a cognitive fog..'
 
     archiveElement.replaceChildren()
   }
 }
 
-loadJournal()
+const journalExists = document.querySelector('#daily-quote')
+
+if (journalExists) {
+  loadJournal()
+}
+
+
 const canvas = document.querySelector("#particle-network");
 const context = canvas?.getContext("2d");
 
