@@ -11,10 +11,13 @@
   <body class="font-serif">
     <section class="visual-hero">
       <div class="ambient-background" aria-hidden="true">
-        <canvas id="particle-network"></canvas>
+        <!-- <canvas id="particle-network"></canvas> -->
     
         <div
-          class="absolute border-orange-400 border-l-4 border-dotted w-0.5 h-svh wire-crawl"
+          class="absolute border-orange-400 border-l-4 border-dotted w-0.5 h-svh wire-idle"
+        ></div>
+        <div
+          class="absolute bg-orange-400 w-svw h-0.5 wire-crawl-v"
         ></div>
     
        
@@ -56,20 +59,17 @@
           ></time>
         </div>
       </div>
-    </section>
-    
-    <section
-      id="journal-archive"
-      class="mx-auto px-6 py-20 max-w-4xl"
-      aria-labelledby="archive-heading"
-    >
-      <h2 id="archive-heading" class="mb-8 text-2xl">
-        Previous entries
-      </h2>
-    
-      <div id="archive-list">
-        <p>Loading previous entries…</p>
+
+      <div id="journal-archive">
+        <h2 id="archive-heading" class="mb-8 text-2xl">
+          Previous entries
+        </h2>
+      
+        <div id="archive-list">
+          <p>Loading previous entries…</p>
       </div>
     </section>
+    
+   
   </body>
 </html>

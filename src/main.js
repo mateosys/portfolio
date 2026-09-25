@@ -9,7 +9,7 @@ const journalQuery = `
     date
   }
 `
-
+// Journal Script
 function formatEntryDate(dateString) {
   const [year, month, day] = dateString.split('-').map(Number)
 
@@ -93,7 +93,7 @@ if (journalExists) {
   loadJournal()
 }
 
-
+// Background effects
 const canvas = document.querySelector("#particle-network");
 const context = canvas?.getContext("2d");
 

@@ -114,6 +114,21 @@
     animation-direction: alternate;
   }
 
+
+  .wire-crawl-v {
+    animation-duration: 4s;
+    animation-name: slide-in-v;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  .wire-idle {
+    animation-duration: 3s;
+    animation-name: slide-idle;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
   @keyframes float-shape {
     from {
       translate: 0 -15px;
@@ -134,8 +149,32 @@
       scale: 200% 1;
     }
     to {
-      translate: 0 0;
+      translate: 12vw 0;
       scale: 75% 1;
+    }
+    
+  }
+
+  @keyframes slide-in-v {
+    from {
+      translate: 0 -50vh;
+      
+    }
+    to {
+      translate: 0 12vh;
+     
+    }
+    
+  }
+
+  @keyframes slide-idle {
+    from{
+      translate: 12svw 0;
+      scale: 100%;
+    }
+    to {
+      translate: 18svw 0;
+      scale: 100%;
     }
   }
 

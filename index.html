@@ -18,13 +18,19 @@
   <body
     class="bg-olive-300 dark:bg-olive-950 text-olive-800 dark:text-olive-50 antialiased leading-8"
   >
+  <div
+  class="absolute bg-amber-400/10 w-0.5 h-svh wire-idle"
+></div>
+<div
+  class="absolute bg-amber-400/10 w-svw h-0.5 wire-crawl-v"
+></div>
   <div class="z-0 absolute inset-0 bg-radial from-olive-300 dark:from-olive-950 via-olive-300 dark:via-olive-950 to-olive-950/25 dark:to-olive-700/25">
  
     <main class="z-10 relative mx-auto px-8 md:px-40 py-16 h-svh container">
       <a href="/work/proj1/index.html"></a>
-      <div class="flex flex-row items-baseline gap-2">
+      <div class="flex flex-row items-baseline gap-1">
         <p class="font-bold text-lg">Matthew Sustaita</p>
-        <p class="">Web Designer & Developer</p>
+        <p class="text-olive-800/65 text-sm">Web Designer & Developer</p>
       </div>
    
 
@@ -38,8 +44,8 @@
           aria-label="Matthew, also known as Mateo"
           class="group inline-block cursor-default"
         >
-          <span class="group-focus:hidden group-hover:hidden transition">Matthew</span>
-          <span class="hidden group-focus:inline group-hover:inline text-amber-600 transition"
+          <span class="group-focus:hidden group-hover:hidden p-2 border border-olive-800 transition">Matthew</span>
+          <span class="hidden group-focus:inline group-hover:inline hover:bg-amber-600/75 p-2 border-r-olive-800 hover:border-r-4 border-l-olive-800 hover:border-l-4 max-w-2xl hover:text-amber-100 transition"
             >Mateo</span
           >
         </span>
@@ -51,14 +57,14 @@
 
       <p class="mt-6 font-bold">Selected Projects</p>
 
-      <ul class="flex flex-col gap-2">
-        <li class="max-w-2xl hover:text-amber-600 transition">
+      <ul class="flex flex-col gap-2 p-2 border border-olive-800 w-fit">
+        <li class="hover:bg-amber-600/75 p-2 border-r-olive-800 hover:border-r-4 border-l-olive-800 hover:border-l-4 max-w-2xl hover:text-amber-100 transition">
           <a class="underline" href="/work/proj1/index.html"
             >Dynamic Publishing Module</a
           >
         </li>
 
-        <li class="max-w-2xl hover:text-amber-600 transition">
+        <li class="hover:bg-amber-600/75 p-2 border-r-olive-800 hover:border-r-4 border-l-olive-800 hover:border-l-4 max-w-2xl hover:text-amber-100 transition">
           <a class="underline" href="/work/proj2/index.html"
             >Custom Sites & Branding</a
           >
@@ -66,14 +72,14 @@
         
 
         <li class="max-w-2xl">
-          <a class="text-olive-800/20 underline" href=""
+          <a class="p-2 text-olive-800/20 underline" href=""
             >Service Website Information Architecture</a
           >
         </li>
       </ul>
     </main>
     <footer>
-      <p class="z-0 bg-olive-300 dark:bg-olive-900 mx-auto px-4 py-4 text-xs">Designed with Vite + Tailwind!</p>
+      <p class="z-0 bg-olive-800 mx-auto px-4 py-4 text-olive-50 text-xs">Designed with Vite + Tailwind!</p>
     </footer>
   </body>
 
