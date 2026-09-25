@@ -1,5 +1,93 @@
 import "./style.css";
+import {sanityClient} from './sanity.js'
+const journalQuery = `
+  *[_type == "journalEntry" && defined(date)]
+  | order(date desc) {
+    _id,
+    quote,
+    speaker,
+    date
+  }
+`
 
+function formatEntryDate(dateString) {
+  const [year, month, day] = dateString.split('-').map(Number)
+
+  return new Intl.DateTimeFormat('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  }).format(new Date(year, month - 1, day))
+}
+
+function createArchiveEntry(entry) {
+  const article = document.createElement('article')
+  article.className = 'border-olive-500/40 py-6 border-t'
+
+  const date = document.createElement('time')
+  date.className = 'block mb-2 text-xs'
+  date.dateTime = entry.date
+  date.textContent = formatEntryDate(entry.date)
+
+  const quote = document.createElement('blockquote')
+  quote.className = 'text-lg'
+
+  const quoteText = document.createElement('p')
+  quoteText.textContent = entry.quote
+
+  const speaker = document.createElement('p')
+  speaker.className = 'mt-2 text-sm'
+  speaker.textContent = `— ${entry.speaker}`
+
+  quote.append(quoteText)
+  article.append(date, quote, speaker)
+
+  return article
+}
+
+async function loadJournal() {
+  const quoteElement = document.querySelector('#daily-quote')
+  const speakerElement = document.querySelector('#entry-speaker')
+  const dateElement = document.querySelector('#entry-date')
+  const archiveElement = document.querySelector('#archive-list')
+
+  try {
+    const entries = await sanityClient.fetch(journalQuery)
+
+    if (!entries.length) {
+      quoteElement.textContent = 'No journal entries have been inked yet.'
+      archiveElement.replaceChildren()
+      return
+    }
+
+    const [latestEntry, ...previousEntries] = entries
+
+    quoteElement.textContent = latestEntry.quote
+    speakerElement.textContent = latestEntry.speaker
+
+    dateElement.dateTime = latestEntry.date
+    dateElement.textContent = formatEntryDate(latestEntry.date)
+
+    if (!previousEntries.length) {
+      const message = document.createElement('p')
+      message.textContent = 'No previous entries yet.'
+      archiveElement.replaceChildren(message)
+      return
+    }
+
+    const archiveEntries = previousEntries.map(createArchiveEntry)
+    archiveElement.replaceChildren(...archiveEntries)
+  } catch (error) {
+    console.error('Unable to parse journal entries, the stranger seems to have obfuscated the planchette :', error)
+
+    quoteElement.textContent =
+      'The daily entry could not be loaded. The Stranger is experience a cognitive fog..'
+
+    archiveElement.replaceChildren()
+  }
+}
+
+loadJournal()
 const canvas = document.querySelector("#particle-network");
 const context = canvas?.getContext("2d");
 

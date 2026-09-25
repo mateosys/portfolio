@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,22 +12,65 @@
     <section class="visual-hero">
       <div class="ambient-background" aria-hidden="true">
         <canvas id="particle-network"></canvas>
-
+    
+        <div
+          class="absolute border-orange-400 border-l-4 border-dotted w-0.5 h-svh wire-crawl"
+        ></div>
+    
+        <div
+          class="absolute bg-orange-400 mt-40 w-40 h-0.5 wire-crawl"
+        ></div>
+    
         <div class="scan-line"></div>
       </div>
-
+    
       <div
-        class="flex flex-row justify-start bg-blue-700/40 backdrop-blur-sm px-4 py-4 border border-olive-500 hero-content"
+        class="flex flex-row justify-start gap-6 bg-blue-700/40 backdrop-blur-sm px-4 py-4 border border-olive-500 hero-content"
       >
-        <div class="gap-2 grid grid-cols-1 bg-olive-950 border-4 border-double text-center">
-          <img class="w-2xs" src="/public/images/pfp.png" alt="" />
-          <span class="mb-3">Auspicious
-          Stranger</span> 
+        <div
+          class="gap-2 grid grid-cols-1 bg-olive-950 border-4 border-double text-center"
+        >
+          <img
+            class="w-2xs object-fill"
+            src="/images/pfp.png"
+            alt="Portrait of the Auspicious Stranger"
+          />
+    
+          <span id="entry-speaker" class="mb-3 py-2 text-xs">
+            Auspicious Stranger
+          </span>
         </div>
-        <p class="max-w-prose text-xl text-pretty">
-          Hey man, there's nothing you can really do about it. So just forget
-          about running away.
-        </p>
+    
+        <div class="max-w-prose">
+          <blockquote>
+            <p
+              id="daily-quote"
+              class="text-sm md:text-xl text-pretty"
+            >
+              Loading today’s entry…
+            </p>
+          </blockquote>
+    
+          <time
+            id="entry-date"
+            class="block mt-4 text-xs"
+            datetime=""
+          ></time>
+        </div>
+      </div>
+    </section>
+    
+    <section
+      id="journal-archive"
+      class="mx-auto px-6 py-20 max-w-4xl"
+      aria-labelledby="archive-heading"
+    >
+      <h2 id="archive-heading" class="mb-8 text-2xl">
+        Previous entries
+      </h2>
+    
+      <div id="archive-list">
+        <p>Loading previous entries…</p>
       </div>
     </section>
   </body>
