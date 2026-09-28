@@ -1,4 +1,6 @@
 import "./style.css";
+import './components/header.js'
+import './components/footer.js'
 import {sanityClient} from './sanity.js'
 const journalQuery = `
   *[_type == "journalEntry" && defined(date)]
