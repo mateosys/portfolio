@@ -28,12 +28,12 @@
 
         <div class="scan-line"></div>
       </div>
-
+      <!-- Begin Journal Content -->
       <div
         class="flex flex-row justify-start gap-6 bg-blue-700/40 backdrop-blur-xs mt-6 px-4 py-4 border border-olive-500 max-w-prose hero-content"
       >
         <div
-          class="gap-2 grid grid-cols-1 bg-olive-950 border-4 border-double max-w-30 text-center"
+          class="gap-2 grid grid-cols-1 bg-olive-950 border-4 border-double max-w-30 overflow-scroll text-center"
         >
           <img
             class="w-2xs object-fill"
@@ -42,7 +42,7 @@
           />
 
           <span id="entry-speaker" class="mb-3 px-2 py-2 max-w-prose text-xs">
-            Auspicious Stranger
+          
           </span>
         </div>
 
@@ -60,8 +60,9 @@
         </div>
       </div>
 
-      <div class="backdrop-blur-sm mt-16 px-8 py-4" id="journal-archive px-4">
-        <h2 id="archive-heading" class="mb-8 text-2xl">Previous entries</h2>
+      <div class="block backdrop-blur-sm mt-16 px-8 py-4 max-h-80 overflow-scroll" id="journal-archive px-4">
+        <h2 id="archive-heading" class="text-2xl">Previous entries</h2>
+        <p class="px-2 py-4 text-orange-400 text-sm italic">Here is where i'm experimenting with colors and ideas, and just putting a daily thought.</p>
 
         <div id="archive-list" class="">
           <p class="">Loading previous entries…</p>

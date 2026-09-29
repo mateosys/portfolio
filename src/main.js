@@ -25,7 +25,7 @@ function formatEntryDate(dateString) {
 
 function createArchiveEntry(entry) {
   const article = document.createElement("article");
-  article.className = "border-olive-500/40 py-6 border-t ";
+  article.className = "border-olive-500/40 py-6 border-t";
 
   const date = document.createElement("time");
   date.className = "block mb-2 text-xs italic";
@@ -54,42 +54,80 @@ async function loadJournal() {
   const dateElement = document.querySelector("#entry-date");
   const archiveElement = document.querySelector("#archive-list");
 
+  // A page without a quote element does not need journal data.
+  if (!quoteElement) {
+    return;
+  }
+
   try {
     const entries = await sanityClient.fetch(journalQuery);
 
     if (!entries.length) {
       quoteElement.textContent = "No journal entries have been inked yet.";
-      archiveElement.replaceChildren();
+
+      if (speakerElement) {
+        speakerElement.textContent = "";
+      }
+
+      if (dateElement) {
+        dateElement.textContent = "";
+        dateElement.removeAttribute("datetime");
+      }
+
+      if (archiveElement) {
+        archiveElement.replaceChildren();
+      }
+
       return;
     }
 
     const [latestEntry, ...previousEntries] = entries;
 
+    // Required
     quoteElement.textContent = latestEntry.quote;
-    speakerElement.textContent = latestEntry.speaker;
 
-    dateElement.dateTime = latestEntry.date;
-    dateElement.textContent = formatEntryDate(latestEntry.date);
-
-    if (!previousEntries.length) {
-      const message = document.createElement("p");
-      message.textContent = "No previous entries yet.";
-      archiveElement.replaceChildren(message);
-      return;
+    // Optional
+    if (speakerElement) {
+      speakerElement.textContent = latestEntry.speaker
+        ? `— ${latestEntry.speaker}`
+        : "";
     }
 
-    const archiveEntries = previousEntries.map(createArchiveEntry);
-    archiveElement.replaceChildren(...archiveEntries);
+    // Optional
+    if (dateElement) {
+      dateElement.dateTime = latestEntry.date;
+      dateElement.textContent = formatEntryDate(latestEntry.date);
+    }
+
+    // The archive only loads on pages containing #archive-list.
+    if (archiveElement) {
+      if (!previousEntries.length) {
+        const message = document.createElement("p");
+        message.textContent = "No previous entries yet.";
+        archiveElement.replaceChildren(message);
+      } else {
+        const archiveEntries = previousEntries.map(createArchiveEntry);
+        archiveElement.replaceChildren(...archiveEntries);
+      }
+    }
   } catch (error) {
-    console.error(
-      "Unable to parse journal entries, the stranger seems to have obfuscated the planchette :",
-      error,
-    );
+    console.error("Unable to load journal entries:", error);
 
     quoteElement.textContent =
-      "The daily entry could not be loaded. The Stranger is experiencing a cognitive fog..";
+      "The daily entry could not be loaded. The Stranger is experiencing cognitive fog.";
 
-    archiveElement.replaceChildren();
+    if (speakerElement) {
+      speakerElement.textContent = "";
+    }
+
+    if (dateElement) {
+      dateElement.textContent = "";
+      dateElement.removeAttribute("datetime");
+    }
+
+    if (archiveElement) {
+      archiveElement.replaceChildren();
+    }
   }
 }
 
@@ -98,6 +136,8 @@ const journalExists = document.querySelector("#daily-quote");
 if (journalExists) {
   loadJournal();
 }
+
+
 // Scramble effects note: the first const will always be unique, and not related to another const or function
 
 const scrambleAnimations = new WeakMap();
