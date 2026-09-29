@@ -1,4 +1,5 @@
 import "./style.css";
+import { animate, stagger } from "motion"
 import "./components/header.js";
 import "./components/footer.js";
 import { sanityClient } from "./sanity.js";
@@ -24,10 +25,10 @@ function formatEntryDate(dateString) {
 
 function createArchiveEntry(entry) {
   const article = document.createElement("article");
-  article.className = "border-olive-500/40 py-6 border-t";
+  article.className = "border-olive-500/40 py-6 border-t ";
 
   const date = document.createElement("time");
-  date.className = "block mb-2 text-xs";
+  date.className = "block mb-2 text-xs italic";
   date.dateTime = entry.date;
   date.textContent = formatEntryDate(entry.date);
 
@@ -331,4 +332,30 @@ if (canvas && context) {
   });
 
   resizeObserver.observe(canvas);
+
+  // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 }

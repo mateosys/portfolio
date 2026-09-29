@@ -11,10 +11,9 @@ class SiteFooter extends HTMLElement {
               © ${year} Matthew Sustaita
             </p>
 
-           <p class="m-0 ">
-              Designed with Vite + Tailwind
-            </p>
-  
+           <a href="/about/index.html" class="m-0 hover:underline  ">
+              About this site
+            </a>
             <a
               href="mailto:hello@mateos.studio"
               class="hover:underline  text-amber-500"

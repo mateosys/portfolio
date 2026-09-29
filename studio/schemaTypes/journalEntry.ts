@@ -26,7 +26,7 @@ export const journalEntry = defineType({
       name: 'speaker',
       title: 'Speaker',
       type: 'string',
-      initialValue: 'Auspicious Stranger',
+      initialValue: 'Mateo',
       validation: (rule) => rule.required(),
     }),
 

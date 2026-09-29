@@ -7,7 +7,6 @@
     <meta name="Project No. 1" content="Agenda Module case overview" />
 
     <title>Dynamic Modules | Matthew Sustaita</title>
-
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
@@ -18,6 +17,16 @@
   <body
     class="bg-olive-300 dark:bg-olive-950 text-olive-800 dark:text-olive-50 antialiased leading-8"
   >
+    <div class="fab">
+      <a href="#top">
+        <button
+          class="md:hidden bg-amber-600 border-amber-200/20 text-olive-50 text-2xl btn btn-lg btn-square"
+        >
+          ↑
+        </button></a
+      >
+    </div>
+    <site-header></site-header>
     <main
       class="z-10 items-start gap-12 lg:gap-16 grid grid-cols-1 lg:grid-cols-[14rem_minmax(0,1fr)] mx-auto px-6 py-20 lg:py-40 max-w-6xl"
     >
@@ -887,13 +896,15 @@
           <p class="mt-2 text-balance">
             Learning from what observed from the agenda system, I made another
             system specifically for sponsor images, team members would fill in
-            data cells via Google Sheets, and have their images appear on the component above. 
-            later on we had a reactive agenda for larger sites that considered tiers and adjusted their hierarchy based on that.
-            it lead to easier uploading and faster uploads as no one had to consider sizes or manual placement.
+            data cells via Google Sheets, and have their images appear on the
+            component above. later on we had a reactive agenda for larger sites
+            that considered tiers and adjusted their hierarchy based on that. it
+            lead to easier uploading and faster uploads as no one had to
+            consider sizes or manual placement.
           </p>
         </article>
       </div>
     </main>
   </body>
-    <site-footer></site-footer>
+  <site-footer></site-footer>
 </html>

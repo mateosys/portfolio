@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auspicious Journal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Space+Grotesk:wght@300..700&family=Xanh+Mono:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body class="xanh-mono-regular">
+    <site-header class="hidden"></site-header>
+    <section class="visual-hero">
+      <div class="ambient-background" aria-hidden="true">
+        <!-- <canvas id="particle-network"></canvas> -->
+
+        <div class="absolute bg-orange-400 w-0.5 h-svh wire-crawl"></div>
+        <div class="absolute bg-orange-400 w-svw h-0.5 wire-crawl-v"></div>
+        <div
+          aria-hidden="true"
+          class="z-0 fixed inset-0 pointer-events-none dot-pattern"
+        ></div>
+
+        <div class="scan-line"></div>
+      </div>
+
+      <div
+        class="flex flex-row justify-start gap-6 bg-blue-700/40 backdrop-blur-xs mt-6 px-4 py-4 border border-olive-500 max-w-prose hero-content"
+      >
+        <div
+          class="gap-2 grid grid-cols-1 bg-olive-950 border-4 border-double max-w-30 text-center"
+        >
+          <img
+            class="w-2xs object-fill"
+            src="/images/pfp.png"
+            alt="Portrait of the Auspicious Stranger"
+          />
+
+          <span id="entry-speaker" class="mb-3 px-2 py-2 max-w-prose text-xs">
+            Auspicious Stranger
+          </span>
+        </div>
+
+        <div class="max-w-prose xanh-mono-regular">
+          <blockquote>
+            <p
+              id="daily-quote"
+              class="text-sm md:text-xl text-pretty xanh-mono-regular"
+            >
+              Loading today’s entry…
+            </p>
+          </blockquote>
+
+          <time id="entry-date" class="block mt-4 text-green-400 text-xs" datetime=""></time>
+        </div>
+      </div>
+
+      <div class="backdrop-blur-sm mt-16 px-8 py-4" id="journal-archive px-4">
+        <h2 id="archive-heading" class="mb-8 text-2xl">Previous entries</h2>
+
+        <div id="archive-list" class="">
+          <p class="">Loading previous entries…</p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
