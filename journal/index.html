@@ -29,45 +29,55 @@
         <div class="scan-line"></div>
       </div>
       <!-- Begin Journal Content -->
-      <div
-        class="flex flex-row justify-start gap-6 bg-blue-700/40 backdrop-blur-xs mt-6 px-4 py-4 border border-olive-500 max-w-prose hero-content"
-      >
-        <div
-          class="gap-2 grid grid-cols-1 bg-olive-950 border-4 border-double max-w-30 overflow-scroll text-center"
-        >
-          <img
-            class="w-2xs object-fill"
-            src="/images/pfp.png"
-            alt="Portrait of the Auspicious Stranger"
-          />
+<div
+data-journal-entry
+class="flex flex-row justify-start gap-6 bg-blue-700/40 backdrop-blur-xs mt-6 px-4 py-4 border border-olive-500 max-w-prose hero-content"
+>
+<div
+  class="gap-2 grid grid-cols-1 bg-olive-950 border-4 border-double max-w-30 overflow-scroll text-center"
+>
+  <img
+    class="w-2xs object-fill"
+    src="/images/pfp.png"
+    alt="Portrait of the Auspicious Stranger"
+  />
 
-          <span id="entry-speaker" class="mb-3 px-2 py-2 max-w-prose text-xs">
-          
-          </span>
-        </div>
+  <span
+    data-journal-speaker
+    class="mb-3 px-2 py-2 max-w-prose text-xs"
+  ></span>
+</div>
 
-        <div class="max-w-prose xanh-mono-regular">
-          <blockquote>
-            <p
-              id="daily-quote"
-              class="text-sm md:text-xl text-pretty xanh-mono-regular"
-            >
-              Loading today’s entry…
-            </p>
-          </blockquote>
+<div class="max-w-prose xanh-mono-regular">
+  <blockquote>
+    <p
+      data-journal-quote
+      class="text-sm md:text-xl text-pretty xanh-mono-regular"
+    >
+      Loading today’s entry…
+    </p>
+  </blockquote>
 
-          <time id="entry-date" class="block mt-4 text-green-400 text-xs" datetime=""></time>
-        </div>
-      </div>
+  <time
+    data-journal-date
+    class="block mt-4 text-green-400 text-xs"
+    datetime=""
+  ></time>
+</div>
+</div>
 
-      <div class="block backdrop-blur-sm mt-16 px-8 py-4 max-h-80 overflow-scroll" id="journal-archive px-4">
-        <h2 id="archive-heading" class="text-2xl">Previous entries</h2>
-        <p class="px-2 py-4 text-orange-400 text-sm italic">Here is where i'm experimenting with colors and ideas, and just putting a daily thought.</p>
+<div
+id="journal-archive"
+class="block backdrop-blur-sm mt-16 px-8 py-4 max-h-80 overflow-scroll"
+>
+<h2 id="archive-heading" class="text-2xl">
+  Previous entries
+</h2>
 
-        <div id="archive-list" class="">
-          <p class="">Loading previous entries…</p>
-        </div>
-      </div>
+<div id="archive-list">
+  <p>Loading previous entries…</p>
+</div>
+</div>
     </section>
   </body>
 </html>

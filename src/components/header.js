@@ -17,22 +17,17 @@ class SiteHeader extends HTMLElement {
             class=" mx-auto flex max-w-6xl  justify-end items-baseline"
             aria-label="Main navigation"
           >
-          <div class="flex flex-row items-baseline gap-3 text-xs">
-       
-        <blockquote>
-          <a 
-          class="hover:underline"
-          href="/journal/index.html">
-          <p
-            id="daily-quote"
-            class=" truncate text-pretty"
-          >
-            Loading today’s entry…
-          </p>
-        </blockquote></a>
-
-        <time id="entry-date" class="hidden md:block mt-4 text-olive-600" datetime=""></time>
+           <div class="bg-olive-700 hover:bg-amber-600 px-1 py-0.5 w-fit text-olive-50 transition">
+        <a class="" href="/journal/index.html">
+          <div class="flex flex-row gap-2 text-xs" data-journal-entry>
+            <p class="truncate text-ellipsis" data-journal-quote>Loading today’s entry…</p>
+            <time class="hidden md:block" data-journal-date datetime=""></time></div
+        ></a>
       </div>
+
+       
+     
+          </div>
       
             <ul class="ml-3 scramble-text uppercase">
               <li>

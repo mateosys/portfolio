@@ -49,13 +49,10 @@ function createArchiveEntry(entry) {
 }
 
 async function loadJournal() {
-  const quoteElement = document.querySelector("#daily-quote");
-  const speakerElement = document.querySelector("#entry-speaker");
-  const dateElement = document.querySelector("#entry-date");
+  const journalWidgets = document.querySelectorAll("[data-journal-entry]");
   const archiveElement = document.querySelector("#archive-list");
 
-  // A page without a quote element does not need journal data.
-  if (!quoteElement) {
+  if (!journalWidgets.length && !archiveElement) {
     return;
   }
 
@@ -63,43 +60,52 @@ async function loadJournal() {
     const entries = await sanityClient.fetch(journalQuery);
 
     if (!entries.length) {
-      quoteElement.textContent = "No journal entries have been inked yet.";
+      journalWidgets.forEach((widget) => {
+        const quoteElement = widget.querySelector("[data-journal-quote]");
+        const speakerElement = widget.querySelector("[data-journal-speaker]");
+        const dateElement = widget.querySelector("[data-journal-date]");
 
-      if (speakerElement) {
-        speakerElement.textContent = "";
-      }
+        if (quoteElement) {
+          quoteElement.textContent = "No journal entries have been inked yet.";
+        }
 
-      if (dateElement) {
-        dateElement.textContent = "";
-        dateElement.removeAttribute("datetime");
-      }
+        if (speakerElement) {
+          speakerElement.textContent = "";
+        }
 
-      if (archiveElement) {
-        archiveElement.replaceChildren();
-      }
+        if (dateElement) {
+          dateElement.textContent = "";
+          dateElement.removeAttribute("datetime");
+        }
+      });
 
+      archiveElement?.replaceChildren();
       return;
     }
 
     const [latestEntry, ...previousEntries] = entries;
 
-    // Required
-    quoteElement.textContent = latestEntry.quote;
+    journalWidgets.forEach((widget) => {
+      const quoteElement = widget.querySelector("[data-journal-quote]");
+      const speakerElement = widget.querySelector("[data-journal-speaker]");
+      const dateElement = widget.querySelector("[data-journal-date]");
 
-    // Optional
-    if (speakerElement) {
-      speakerElement.textContent = latestEntry.speaker
-        ? `— ${latestEntry.speaker}`
-        : "";
-    }
+      if (quoteElement) {
+        quoteElement.textContent = latestEntry.quote;
+      }
 
-    // Optional
-    if (dateElement) {
-      dateElement.dateTime = latestEntry.date;
-      dateElement.textContent = formatEntryDate(latestEntry.date);
-    }
+      if (speakerElement) {
+        speakerElement.textContent = latestEntry.speaker
+          ? `— ${latestEntry.speaker}`
+          : "";
+      }
 
-    // The archive only loads on pages containing #archive-list.
+      if (dateElement) {
+        dateElement.dateTime = latestEntry.date;
+        dateElement.textContent = formatEntryDate(latestEntry.date);
+      }
+    });
+
     if (archiveElement) {
       if (!previousEntries.length) {
         const message = document.createElement("p");
@@ -113,30 +119,37 @@ async function loadJournal() {
   } catch (error) {
     console.error("Unable to load journal entries:", error);
 
-    quoteElement.textContent =
-      "The daily entry could not be loaded. The Stranger is experiencing cognitive fog.";
+    journalWidgets.forEach((widget) => {
+      const quoteElement = widget.querySelector("[data-journal-quote]");
+      const speakerElement = widget.querySelector("[data-journal-speaker]");
+      const dateElement = widget.querySelector("[data-journal-date]");
 
-    if (speakerElement) {
-      speakerElement.textContent = "";
-    }
+      if (quoteElement) {
+        quoteElement.textContent =
+          "The daily entry could not be loaded. The Stranger is experiencing cognitive fog.";
+      }
 
-    if (dateElement) {
-      dateElement.textContent = "";
-      dateElement.removeAttribute("datetime");
-    }
+      if (speakerElement) {
+        speakerElement.textContent = "";
+      }
 
-    if (archiveElement) {
-      archiveElement.replaceChildren();
-    }
+      if (dateElement) {
+        dateElement.textContent = "";
+        dateElement.removeAttribute("datetime");
+      }
+    });
+
+    archiveElement?.replaceChildren();
   }
 }
 
-const journalExists = document.querySelector("#daily-quote");
+const journalExists =
+  document.querySelector("[data-journal-entry]") ||
+  document.querySelector("#archive-list");
 
 if (journalExists) {
   loadJournal();
 }
-
 
 // Scramble effects note: the first const will always be unique, and not related to another const or function
 
