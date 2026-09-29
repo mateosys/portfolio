@@ -1,7 +1,7 @@
 import "./style.css";
-import './components/header.js'
-import './components/footer.js'
-import {sanityClient} from './sanity.js'
+import "./components/header.js";
+import "./components/footer.js";
+import { sanityClient } from "./sanity.js";
 const journalQuery = `
   *[_type == "journalEntry" && defined(date)]
   | order(date desc) {
@@ -10,101 +10,214 @@ const journalQuery = `
     speaker,
     date
   }
-`
+`;
 // Journal Script
 function formatEntryDate(dateString) {
-  const [year, month, day] = dateString.split('-').map(Number)
+  const [year, month, day] = dateString.split("-").map(Number);
 
-  return new Intl.DateTimeFormat('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  }).format(new Date(year, month - 1, day))
+  return new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(new Date(year, month - 1, day));
 }
 
 function createArchiveEntry(entry) {
-  const article = document.createElement('article')
-  article.className = 'border-olive-500/40 py-6 border-t'
+  const article = document.createElement("article");
+  article.className = "border-olive-500/40 py-6 border-t";
 
-  const date = document.createElement('time')
-  date.className = 'block mb-2 text-xs'
-  date.dateTime = entry.date
-  date.textContent = formatEntryDate(entry.date)
+  const date = document.createElement("time");
+  date.className = "block mb-2 text-xs";
+  date.dateTime = entry.date;
+  date.textContent = formatEntryDate(entry.date);
 
-  const quote = document.createElement('blockquote')
-  quote.className = 'text-lg'
+  const quote = document.createElement("blockquote");
+  quote.className = "text-lg";
 
-  const quoteText = document.createElement('p')
-  quoteText.textContent = entry.quote
+  const quoteText = document.createElement("p");
+  quoteText.textContent = entry.quote;
 
-  const speaker = document.createElement('p')
-  speaker.className = 'mt-2 text-sm'
-  speaker.textContent = `— ${entry.speaker}`
+  const speaker = document.createElement("p");
+  speaker.className = "mt-2 text-sm";
+  speaker.textContent = `— ${entry.speaker}`;
 
-  quote.append(quoteText)
-  article.append(date, quote, speaker)
+  quote.append(quoteText);
+  article.append(date, quote, speaker);
 
-  return article
+  return article;
 }
 
 async function loadJournal() {
-  const quoteElement = document.querySelector('#daily-quote')
-  const speakerElement = document.querySelector('#entry-speaker')
-  const dateElement = document.querySelector('#entry-date')
-  const archiveElement = document.querySelector('#archive-list')
+  const quoteElement = document.querySelector("#daily-quote");
+  const speakerElement = document.querySelector("#entry-speaker");
+  const dateElement = document.querySelector("#entry-date");
+  const archiveElement = document.querySelector("#archive-list");
 
   try {
-    const entries = await sanityClient.fetch(journalQuery)
+    const entries = await sanityClient.fetch(journalQuery);
 
     if (!entries.length) {
-      quoteElement.textContent = 'No journal entries have been inked yet.'
-      archiveElement.replaceChildren()
-      return
+      quoteElement.textContent = "No journal entries have been inked yet.";
+      archiveElement.replaceChildren();
+      return;
     }
 
-    const [latestEntry, ...previousEntries] = entries
+    const [latestEntry, ...previousEntries] = entries;
 
-    quoteElement.textContent = latestEntry.quote
-    speakerElement.textContent = latestEntry.speaker
+    quoteElement.textContent = latestEntry.quote;
+    speakerElement.textContent = latestEntry.speaker;
 
-    dateElement.dateTime = latestEntry.date
-    dateElement.textContent = formatEntryDate(latestEntry.date)
+    dateElement.dateTime = latestEntry.date;
+    dateElement.textContent = formatEntryDate(latestEntry.date);
 
     if (!previousEntries.length) {
-      const message = document.createElement('p')
-      message.textContent = 'No previous entries yet.'
-      archiveElement.replaceChildren(message)
-      return
+      const message = document.createElement("p");
+      message.textContent = "No previous entries yet.";
+      archiveElement.replaceChildren(message);
+      return;
     }
 
-    const archiveEntries = previousEntries.map(createArchiveEntry)
-    archiveElement.replaceChildren(...archiveEntries)
+    const archiveEntries = previousEntries.map(createArchiveEntry);
+    archiveElement.replaceChildren(...archiveEntries);
   } catch (error) {
-    console.error('Unable to parse journal entries, the stranger seems to have obfuscated the planchette :', error)
+    console.error(
+      "Unable to parse journal entries, the stranger seems to have obfuscated the planchette :",
+      error,
+    );
 
     quoteElement.textContent =
-      'The daily entry could not be loaded. The Stranger is experiencing a cognitive fog..'
+      "The daily entry could not be loaded. The Stranger is experiencing a cognitive fog..";
 
-    archiveElement.replaceChildren()
+    archiveElement.replaceChildren();
   }
 }
 
-const journalExists = document.querySelector('#daily-quote')
+const journalExists = document.querySelector("#daily-quote");
 
 if (journalExists) {
-  loadJournal()
+  loadJournal();
+}
+// Scramble effects note: the first const will always be unique, and not related to another const or function
+
+const scrambleAnimations = new WeakMap();
+
+const scrambleCharacters =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!<>-_\\/[]{}—=+*^?#";
+
+function randomCharacter() {
+  return scrambleCharacters[
+    Math.floor(Math.random() * scrambleCharacters.length)
+  ];
 }
 
+function scrambleText(element, newText, options = {}) {
+  const output = element.querySelector("[aria-hidden='true']");
+
+  if (!output) {
+    return;
+  }
+
+  // Stop an existing animation on this same element.
+  const previousAnimation = scrambleAnimations.get(element);
+
+  if (previousAnimation) {
+    cancelAnimationFrame(previousAnimation);
+  }
+
+  const {
+    duration = 850,
+    scrambleSpeed = 35,
+    stagger = 0.65,
+  } = options;
+
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  element.setAttribute("aria-label", newText);
+
+  if (reducedMotion) {
+    output.textContent = newText;
+    return;
+  }
+
+  const startTime = performance.now();
+  let previousUpdate = 0;
+
+  function animate(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+
+    /*
+     * Characters settle from left to right.
+     * Increasing stagger makes the transition more directional.
+     */
+    const settledPosition =
+      progress * (newText.length + newText.length * stagger);
+
+    if (
+      currentTime - previousUpdate >= scrambleSpeed ||
+      progress === 1
+    ) {
+      previousUpdate = currentTime;
+
+      const animatedCharacters = [...newText].map(
+        (character, index) => {
+          if (character === " ") {
+            return " ";
+          }
+
+          if (index < settledPosition) {
+            return character;
+          }
+
+          return randomCharacter();
+        }
+      );
+
+      output.innerHTML = animatedCharacters
+        .map((character, index) => {
+          const isSettled = index < settledPosition;
+
+          if (isSettled || character === " ") {
+            return character;
+          }
+
+          return `<span class="scramble-character">${character}</span>`;
+        })
+        .join("");
+    }
+
+    if (progress < 1) {
+      const animationId = requestAnimationFrame(animate);
+      scrambleAnimations.set(element, animationId);
+    } else {
+      output.textContent = newText;
+      scrambleAnimations.delete(element);
+    }
+  }
+
+  const animationId = requestAnimationFrame(animate);
+  scrambleAnimations.set(element, animationId);
+}
+
+document.querySelectorAll("[data-scramble]").forEach((element) => {
+  const finalText = element.dataset.scramble;
+
+  scrambleText(element, finalText, {
+    duration: 1000,
+    scrambleSpeed: 30,
+  });
+});
 // Background effects
 const canvas = document.querySelector("#particle-network");
 const context = canvas?.getContext("2d");
 
 // Continue with the canvas code here
 
-
 if (canvas && context) {
   const reducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
+    "(prefers-reduced-motion: reduce)",
   ).matches;
 
   let particles = [];
@@ -162,45 +275,27 @@ if (canvas && context) {
     context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
     // Fewer particles on smaller screens.
-    const particleCount = Math.min(
-      80,
-      Math.max(28, Math.floor(width / 18))
-    );
+    const particleCount = Math.min(80, Math.max(28, Math.floor(width / 18)));
 
-    particles = Array.from(
-      { length: particleCount },
-      () => new Particle()
-    );
+    particles = Array.from({ length: particleCount }, () => new Particle());
   }
 
   function connectParticles() {
     const connectionDistance = 135;
 
     for (let first = 0; first < particles.length; first++) {
-      for (
-        let second = first + 1;
-        second < particles.length;
-        second++
-      ) {
+      for (let second = first + 1; second < particles.length; second++) {
         const dx = particles[first].x - particles[second].x;
         const dy = particles[first].y - particles[second].y;
         const distance = Math.hypot(dx, dy);
 
         if (distance < connectionDistance) {
-          const opacity =
-            (1 - distance / connectionDistance) * 0.22;
+          const opacity = (1 - distance / connectionDistance) * 0.22;
 
           context.beginPath();
-          context.moveTo(
-            particles[first].x,
-            particles[first].y
-          );
-          context.lineTo(
-            particles[second].x,
-            particles[second].y
-          );
-          context.strokeStyle =
-            `rgba(166, 178, 255, ${opacity})`;
+          context.moveTo(particles[first].x, particles[first].y);
+          context.lineTo(particles[second].x, particles[second].y);
+          context.strokeStyle = `rgba(166, 178, 255, ${opacity})`;
           context.lineWidth = 0.75;
           context.stroke();
         }
