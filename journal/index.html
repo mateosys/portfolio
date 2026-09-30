@@ -13,14 +13,14 @@
     <link rel="stylesheet" href="/src/style.css" />
     <script type="module" src="/src/main.js"></script>
   </head>
-  <body class="xanh-mono-regular">
+  <body class="">
     <site-header class="hidden"></site-header>
     <section class="visual-hero">
       <div class="ambient-background" aria-hidden="true">
         <!-- <canvas id="particle-network"></canvas> -->
 
-        <div class="absolute bg-orange-400 w-0.5 h-svh wire-crawl"></div>
-        <div class="absolute bg-orange-400 w-svw h-0.5 wire-crawl-v"></div>
+        <div class="absolute bg-amber-400/10 w-0.5 h-svh wire-crawl"></div>
+        <div class="absolute bg-amber-400/10 w-svw h-0.5 wire-crawl-v"></div>
         <div
           aria-hidden="true"
           class="z-0 fixed inset-0 pointer-events-none dot-pattern"
@@ -31,7 +31,7 @@
       <!-- Begin Journal Content -->
 <div
 data-journal-entry
-class="flex flex-row justify-start gap-6 bg-blue-700/40 backdrop-blur-xs mt-6 px-4 py-4 border border-olive-500 max-w-prose hero-content"
+class="flex flex-row justify-start gap-6 bg-olive-700 backdrop-blur-xs mt-6 px-4 py-4 border border-olive-500 max-w-prose hero-content"
 >
 <div
   class="gap-2 grid grid-cols-1 bg-olive-950 border-4 border-double max-w-30 overflow-scroll text-center"
@@ -48,11 +48,12 @@ class="flex flex-row justify-start gap-6 bg-blue-700/40 backdrop-blur-xs mt-6 px
   ></span>
 </div>
 
-<div class="max-w-prose xanh-mono-regular">
+<div class="max-w-prose">
   <blockquote>
     <p
+      data-scramble
       data-journal-quote
-      class="text-sm md:text-xl text-pretty xanh-mono-regular"
+      class="text-sm md:text-xl text-pretty"
     >
       Loading today’s entry…
     </p>
@@ -60,7 +61,7 @@ class="flex flex-row justify-start gap-6 bg-blue-700/40 backdrop-blur-xs mt-6 px
 
   <time
     data-journal-date
-    class="block mt-4 text-green-400 text-xs"
+    class="block mt-4 text-amber-400 text-xs"
     datetime=""
   ></time>
 </div>
@@ -68,9 +69,9 @@ class="flex flex-row justify-start gap-6 bg-blue-700/40 backdrop-blur-xs mt-6 px
 
 <div
 id="journal-archive"
-class="block backdrop-blur-sm mt-16 px-8 py-4 max-h-80 overflow-scroll"
+class="block bg-olive-800/40 backdrop-blur-sm mt-16 px-8 py-4 max-h-fit md:max-h-80 overflow-scroll"
 >
-<h2 id="archive-heading" class="text-2xl">
+<h2 id="archive-heading" class="mb-4 text-2xl">
   Previous entries
 </h2>
 

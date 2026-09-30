@@ -17,18 +17,6 @@ class SiteHeader extends HTMLElement {
             class=" mx-auto flex max-w-6xl  justify-end items-center"
             aria-label="Main navigation"
           >
-
-           <div class="bg-olive-700  px-1 py-0.5 w-fit text-olive-50 transition">
-            <p class="text-xs interface-text tracking-tighter">Daily Thought</p>
-          <div class="flex flex-row gap-2 text-xs" data-journal-entry>
-            
-            <p class="truncate text-ellipsis" data-journal-quote>Loading today’s entry…</p>
-            <time class="hidden md:block" data-journal-date datetime=""></time></div
-        >
-      </div>
-
-       
-     
           </div>
       
             <ul class="ml-3 scramble-text uppercase">

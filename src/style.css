@@ -94,7 +94,7 @@
 
   .dot-pattern {
     opacity: 0.3;
-    background-image: radial-gradient(circle, #ffffff 2.04px, transparent 2.04px);
+    background-image: radial-gradient(circle, oklch(58% 0.031 107.3) 2.04px, transparent 2.04px);
     background-size: 35.5px 35.5px;
   }
 
@@ -109,11 +109,11 @@
     place-items: center;
     background: radial-gradient(
         circle at 20% 20%,
-        rgb(87 72 255 / 24%),
+        oklch(73.7% 0.021 106.9),
         transparent 35%
       ),
-      radial-gradient(circle at 80% 70%, rgb(0 214 170 / 16%), transparent 35%),
-      #080a12;
+      radial-gradient(circle at 80% 70%, oklch(98.8% 0.003 106.5), transparent 35%),
+      oklch(93% 0.007 106.5);
     color: white;
   }
 
@@ -247,9 +247,9 @@
     background: linear-gradient(
       to bottom,
       transparent,
-      rgba(252, 183, 94, 0.03),
-      rgba(252, 152, 94, 0.18),
-      rgba(232, 161, 102, 0.08),
+      oklch(47.3% 0.137 46.20 / 0.1),
+      oklch(76.9% 0.188 70.08 / 0.2),
+      oklch(47.3% 0.137 46.20 / 0.1),
       transparent
     );
     filter: blur(8px);
