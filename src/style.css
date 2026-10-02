@@ -30,19 +30,6 @@
     letter-spacing: -0.025em;
     text-transform: uppercase;
   }
-
-  .xanh-mono-regular {
-    font-family: "Xanh Mono", monospace;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .xanh-mono-regular-italic {
-    font-family: "Xanh Mono", monospace;
-    font-weight: 400;
-    font-style: italic;
-  }
-
   .scramble-text {
     font-family: "IBM Plex Mono", monospace;
     font-size: 0.875rem;
