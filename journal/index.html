@@ -22,62 +22,52 @@
         <div class="absolute bg-amber-400/10 w-0.5 h-svh wire-crawl"></div>
         <div class="absolute bg-amber-400/10 w-svw h-0.5 wire-crawl-v"></div>
         <div
+          id="dotAnimation"
           aria-hidden="true"
           class="z-0 fixed inset-0 pointer-events-none dot-pattern"
         ></div>
-
-        <div class="scan-line"></div>
       </div>
       <!-- Begin Journal Content -->
-<div
-data-journal-entry
-class="flex flex-row justify-start gap-6 bg-olive-700 backdrop-blur-xs mt-6 px-4 py-4 border border-olive-500 max-w-prose hero-content"
->
-<div
-  class="gap-2 grid grid-cols-1 bg-olive-950 border-4 border-double max-w-30 overflow-scroll text-center"
->
-  <img
-    class="w-2xs object-fill"
-    src="/images/pfp.png"
-    alt="Portrait of the Auspicious Stranger"
-  />
+      <h1
+        class="bg-olive-300/50 mt-6 p-3 border border-amber-600 md:text-3xl tracking-wider interface-text"
+      >
+        daily thought
+      </h1>
+      <div
+        id="quoteAnimation"
+        data-journal-entry
+        class="flex flex-row justify-start gap-6 bg-olive-700 backdrop-blur-xs mt-6 px-4 py-4 border border-olive-500 max-w-prose hero-content"
+      >
+        <div class="max-w-prose">
+          <blockquote id="">
+            <p
+              data-scramble
+              data-journal-quote
+              class="text-lg md:text-xl lowercase text-pretty scramble-text"
+            >
+              Loading today’s entry…
+            </p>
+          </blockquote>
 
-  <span
-    data-journal-speaker
-    class="mb-3 px-2 py-2 max-w-prose text-xs interface-text"
-  ></span>
-</div>
-
-<div class="max-w-prose">
-  <blockquote>
-    <p
-      data-journal-quote
-      class="text-sm md:text-xl lowercase text-pretty scramble-text"
-    >
-      Loading today’s entry…
-    </p>
-  </blockquote>
-
-  <time
-    data-journal-date
-    class="block mt-4 text-amber-400 text-xs scramble-text"
-    datetime=""
-  ></time>
-</div>
-</div>
-
-<div
-id="journal-archive"
-class="block bg-olive-800/40 backdrop-blur-sm mt-16 px-8 py-4 max-h-fit md:max-h-80 overflow-scroll"
->
-<h2 id="archive-heading" class="mb-4 text-2xl">
-  Previous entries
-</h2>
-<p>daily quotes & thoughts from me.</p>
-<div id="archive-list">
-  <p>Loading previous entries…</p>
-</div>
-</div>
+          <time
+            data-journal-date
+            class="block mt-4 text-amber-400 text-xs scramble-text"
+            datetime=""
+          ></time>
+        </div>
+      </div>
+      <div id="quoteAnimation" class="px-4 py-4">
+        <div
+          id="journal-archive"
+          class="block backdrop-blur-xs mt-16 px-8 py-4 border border-olive-800 max-h-fit md:max-h-80 overflow-scroll text-olive-600"
+        >
+          <h2 id="archive-heading" class="mb-6 text-2xl">Previous entries</h2>
+          <p class="mb-6">Daily quotes & thoughts from me.</p>
+          <div id="archive-list">
+            <p>Loading previous entries…</p>
+          </div>
+        </div>
+      </div>
     </section>
   </body>
 </html>

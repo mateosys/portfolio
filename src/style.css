@@ -30,6 +30,14 @@
     letter-spacing: -0.025em;
     text-transform: uppercase;
   }
+  .interface-text-p {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+  
+  }
   .scramble-text {
     font-family: "IBM Plex Mono", monospace;
     font-size: 0.875rem;
@@ -39,8 +47,6 @@
     text-transform: uppercase;
   }
 
-  .scramble-text-p {
-  }
 
   .scramble-text-p .scramble-character {
     color: currentColor;
@@ -52,35 +58,9 @@
     opacity: 0.45;
   }
 
-  .bg-grid {
-    opacity: 0.8;
-    background-image: radial-gradient(
-      ellipse 2px 1px at center,
-      #2b2b22 0.84px,
-      transparent 0.84px
-    );
-    background-size: 10.5px 10.5px;
-    /* mask-image: radial-gradient(
-      ellipse 75% 55% at center,
-      transparent 0%,
-      transparent 52%,
-      rgb(0 0 0 / 0.6) 100%
-    ); */
-
-    /* -webkit-mask-image: radial-gradient(
-      ellipse 75% 55% at center,
-      transparent 0%,
-      transparent 52%,
-      rgb(0 0 0 / 0.6) 100%
-    ); */
-    mask-size: 100% 100%;
-    -webkit-mask-size: 100% 100%;
-    mask-repeat: no-repeat;
-    -webkit-mask-repeat: no-repeat;
-  }
 
   .dot-pattern {
-    opacity: 0.3;
+    opacity: 0.2;
     background-image: radial-gradient(circle, oklch(58% 0.031 107.3) 2.04px, transparent 2.04px);
     background-size: 35.5px 35.5px;
   }
@@ -300,18 +280,52 @@
       animation: none;
     }
   }
-}
 
-@layer utilities {
-  .mask-rect-vignette {
-    -webkit-mask-image: linear-gradient(to bottom, black, transparent 5%),
-      linear-gradient(to top, black, transparent 5%),
-      linear-gradient(to right, black, transparent 5%),
-      linear-gradient(to left, black, transparent 5%);
+  /* Sony Walkman-esque marquee Scroll  */
 
-    mask-image: linear-gradient(to bottom, black, transparent 5%),
-      linear-gradient(to top, black, transparent 5%),
-      linear-gradient(to right, black, transparent 5%),
-      linear-gradient(to left, black, transparent 5%);
+  .journal-marquee {
+    position: relative;
+    height: 1.75rem;
+    overflow: hidden;
+  }
+  
+  .journal-marquee__text {
+    display: block;
+    width: max-content;
+    white-space: nowrap;
+  }
+  
+  .journal-marquee.is-scrolling .journal-marquee__text {
+    position: absolute;
+    left: 0;
+    animation: walkman-scroll-left 14s linear infinite;
+  }
+  
+  @keyframes walkman-scroll-left {
+    0% {
+      left: 100%;
+      transform: translateX(0);
+    }
+  
+    85%,
+    100% {
+      left: 0;
+      transform: translateX(-100%);
+    }
+  }
+  
+  [data-journal-entry]:hover .journal-marquee__text,
+  [data-journal-entry]:focus-within .journal-marquee__text {
+    animation-play-state: paused;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .journal-marquee.is-scrolling .journal-marquee__text {
+      position: static;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      animation: none;
+    }
   }
 }

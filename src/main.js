@@ -1,5 +1,5 @@
 import "./style.css";
-import { animate, stagger } from "motion"
+import { animate, stagger, scroll, easeIn } from "motion"
 import "./components/header.js";
 import "./components/footer.js";
 import { sanityClient } from "./sanity.js";
@@ -137,6 +137,7 @@ async function loadJournal() {
         dateElement.textContent = "";
         dateElement.removeAttribute("datetime");
       }
+
     });
 
     archiveElement?.replaceChildren();
@@ -263,4 +264,16 @@ document.querySelectorAll("[data-scramble]").forEach((element) => {
     scrambleSpeed: 30,
   });
 });
+
+// motion scripts
+const quoteAnimation = document.getElementById("quoteAnimation")
+const dotAnimation = document.getElementById("dotAnimation")
+animate(quoteAnimation,   {
+  duration: 1,
+  opacity: [0, 1],
+  filter: ["blur(4px)", "blur(0px)"],
+  ease: easeIn,
+})
+svgEffect
+
 
