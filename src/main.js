@@ -274,6 +274,5 @@ animate(quoteAnimation,   {
   filter: ["blur(4px)", "blur(0px)"],
   ease: easeIn,
 })
-svgEffect
 
 

@@ -16,14 +16,13 @@
   <body class="">
     <site-header class="hidden"></site-header>
     <section class="visual-hero">
-      <div class="ambient-background" aria-hidden="true">
+      <div class="ambient-background">
         <!-- <canvas id="particle-network"></canvas> -->
 
         <div class="absolute bg-amber-400/10 w-0.5 h-svh wire-crawl"></div>
         <div class="absolute bg-amber-400/10 w-svw h-0.5 wire-crawl-v"></div>
         <div
-          id="dotAnimation"
-          aria-hidden="true"
+         
           class="z-0 fixed inset-0 pointer-events-none dot-pattern"
         ></div>
       </div>
@@ -34,14 +33,12 @@
         daily thought
       </h1>
       <div
-        id="quoteAnimation"
         data-journal-entry
         class="flex flex-row justify-start gap-6 bg-olive-700 backdrop-blur-xs mt-6 px-4 py-4 border border-olive-500 max-w-prose hero-content"
       >
         <div class="max-w-prose">
           <blockquote id="">
             <p
-              data-scramble
               data-journal-quote
               class="text-lg md:text-xl lowercase text-pretty scramble-text"
             >
@@ -62,7 +59,7 @@
           class="block backdrop-blur-xs mt-16 px-8 py-4 border border-olive-800 max-h-fit md:max-h-80 overflow-scroll text-olive-600"
         >
           <h2 id="archive-heading" class="mb-6 text-2xl">Previous entries</h2>
-          <p class="mb-6">Daily quotes & thoughts from me.</p>
+          <p class="mb-6 text-xs">Daily quotes & thoughts from me. <a class="underline underline-offset-4" href="https://www.sanity.io/">Using Sanity CMS</a></p>
           <div id="archive-list">
             <p>Loading previous entries…</p>
           </div>

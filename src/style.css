@@ -12,6 +12,9 @@
   h2 {
     @apply font-bold text-3xl text-balance tracking-tight;
   }
+  h2 {
+    @apply font-bold text-2xl text-balance tracking-tight;
+  }
   p {
     @apply max-w-prose;
     font-family: "DM Sans", sans-serif;
@@ -281,51 +284,5 @@
     }
   }
 
-  /* Sony Walkman-esque marquee Scroll  */
-
-  .journal-marquee {
-    position: relative;
-    height: 1.75rem;
-    overflow: hidden;
-  }
   
-  .journal-marquee__text {
-    display: block;
-    width: max-content;
-    white-space: nowrap;
-  }
-  
-  .journal-marquee.is-scrolling .journal-marquee__text {
-    position: absolute;
-    left: 0;
-    animation: walkman-scroll-left 14s linear infinite;
-  }
-  
-  @keyframes walkman-scroll-left {
-    0% {
-      left: 100%;
-      transform: translateX(0);
-    }
-  
-    85%,
-    100% {
-      left: 0;
-      transform: translateX(-100%);
-    }
-  }
-  
-  [data-journal-entry]:hover .journal-marquee__text,
-  [data-journal-entry]:focus-within .journal-marquee__text {
-    animation-play-state: paused;
-  }
-  
-  @media (prefers-reduced-motion: reduce) {
-    .journal-marquee.is-scrolling .journal-marquee__text {
-      position: static;
-      max-width: 100%;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      animation: none;
-    }
-  }
 }
