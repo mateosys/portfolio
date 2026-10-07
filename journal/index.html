@@ -14,19 +14,17 @@
     <script type="module" src="/src/main.js"></script>
   </head>
   <body class="">
-    <site-header class="hidden"></site-header>
+    
     <section class="visual-hero">
       <div class="ambient-background">
         <!-- <canvas id="particle-network"></canvas> -->
 
         <div class="absolute bg-amber-400/10 w-0.5 h-svh wire-crawl"></div>
         <div class="absolute bg-amber-400/10 w-svw h-0.5 wire-crawl-v"></div>
-        <div
-         
-          class="z-0 fixed inset-0 pointer-events-none dot-pattern"
-        ></div>
+        <div class="z-0 fixed inset-0 pointer-events-none dot-pattern"></div>
       </div>
       <!-- Begin Journal Content -->
+      <site-header class="text-olive-700"></site-header>
       <h1
         class="bg-olive-300/50 mt-6 p-3 border border-amber-600 md:text-3xl tracking-wider interface-text"
       >
@@ -59,7 +57,17 @@
           class="block backdrop-blur-xs mt-16 px-8 py-4 border border-olive-800 max-h-fit md:max-h-80 overflow-scroll text-olive-600"
         >
           <h2 id="archive-heading" class="mb-6 text-2xl">Previous entries</h2>
-          <p class="mb-6 text-xs">Daily quotes & thoughts from me. <a class="underline underline-offset-4" href="https://www.sanity.io/">Using Sanity CMS</a></p>
+          <p class="mb-6 text-xs text-balance">
+            Daily quotes & thoughts from me. This journal was an experiment in
+            learning a headless CMS, and finding a way to allow me to post to my
+            site without committing and pushing content without a dedicated CMS
+            web platform.
+            <a
+              class="underline underline-offset-4"
+              href="https://www.sanity.io/"
+              >Using Sanity CMS</a
+            >
+          </p>
           <div id="archive-list">
             <p>Loading previous entries…</p>
           </div>
