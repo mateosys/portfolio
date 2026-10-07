@@ -16,7 +16,7 @@
   "dependencies": {
     "@sanity/client": "^8.7.0",
     "@tailwindcss/vite": "^4.3.3",
-    "motion": "^13.4.6",
+    "motion": "^13.5.1",
     "tailwindcss": "^4.3.3"
   }
 }

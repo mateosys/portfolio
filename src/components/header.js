@@ -17,12 +17,15 @@ class SiteHeader extends HTMLElement {
             class=" mx-auto flex flex-row items-baseline max-w-6xl  justify-end"
             aria-label="Main navigation"
           >
-            <ul class="ml-3 scramble-text uppercase flex flex-row">
+            <ul class="ml-3 scramble-text uppercase flex flex-row gap-2 items-baseline text-xs ">
               <li>
-                <a href="/index.html" class=" hover:underline">Home</a>
+                <a href="/" class=" hover:underline">Home</a>
+              </li>
+               <li>
+                <a href="about/" class=" hover:underline">About</a>
               </li>
               <li>
-                <a href="mailto:hello@mateos.studio" class="hover:underline text-xs align-baseline dark:text-olive-50/50 text-olive-800/50">hello@mateos.studio</a>
+                <a href="mailto:hello@mateos.studio" class="hover:underline   align-baseline dark:text-olive-50/50 text-olive-800/50">hello@mateos.studio</a>
               </li>
             </ul>
           </nav>
