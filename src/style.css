@@ -16,7 +16,7 @@
     @apply font-bold text-2xl text-balance tracking-tight;
   }
   p {
-    @apply max-w-prose;
+    @apply max-w-prose leading-8;
     font-family: "DM Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
