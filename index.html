@@ -27,7 +27,7 @@
     <site-header class="z-20 absolute mx-auto container"></site-header>
     <!-- page content -->
     <main class="z-10 relative mx-auto px-8 md:px-40 py-16 min-h-svh container">
-      <div class="flex flex-row items-baseline gap-6">
+      <!-- <div class="flex flex-row items-baseline gap-6">
         <p
           class="font-bold text-lg scramble-text"
           data-scramble="MATTHEW SUSTAITA"
@@ -42,7 +42,7 @@
         >
           <span aria-hidden="true">Web Designer & Developer</span>
         </p>
-      </div>
+      </div> -->
       <h1 class="mt-6 font-bold text-2xl interface-text">
         I'm
         <span
@@ -91,38 +91,40 @@
         data-scramble="Work Projects"
         aria-label="Work Projects"
       >
-        <span aria-hidden="true"> Work Projects</span>
+        <span aria-hidden="true"> Highlighted Projects</span>
       </p>
 
       <ul class="flex flex-col gap-2 p-2 border border-olive-800 w-fit">
         <li
           class="hover:bg-amber-600/75 p-2 border-r-olive-800 hover:border-r-4 border-l-olive-800 hover:border-l-4 max-w-2xl hover:text-amber-100 transition hover:interface-text"
         >
-          <a class="underline" href="/work/proj2/index.html"
-            >Custom Sites & Branding</a
+          <a class="underline" href="/work/migration/index.html"
+            >Website Migration</a
           >
         </li>
         <li
           class="hover:bg-amber-600/75 p-2 border-r-olive-800 hover:border-r-4 border-l-olive-800 hover:border-l-4 max-w-2xl hover:text-amber-100 transition"
         >
-          <a class="underline" href="/work/proj1/index.html"
-            >Dynamic Components</a
+          <a class="underline" href="/work/design-branding/index.html"
+            >Web Design & Branding</a
           >
         </li>
-        <li class="hidden max-w-2xl">
-          <a class="p-2 text-olive-800/20 underline" href=""
-            >Other Projects Coming Soon</a
+        <li class="hover:bg-amber-600/75 p-2 border-r-olive-800 hover:border-r-4 border-l-olive-800 hover:border-l-4 max-w-2xl hover:text-amber-100 transition">
+          <a class="underline" href="/work/"
+            >Everything Else</a
           >
         </li>
       </ul> 
   
     </main>
     <div class="bg-olive-300 dark:bg-olive-950/25 mx-auto px-4 py-2 w-full dark:text-olive-50 transition">
-      <div class="mx-auto max-w-6xl">
+      <div class="flex mx-auto max-w-6xl">
         <a href="/journal/index.html">
-          <p class="text-olive-800/60 dark:text-olive-50/60 text-sm tracking-tighter interface-text">Daily Thought</p>
-          <div class="flex flex-row gap-2 text-xs" data-journal-entry>
+          
+          <div class="flex flex-row items-center gap-2 hover:bg-amber-600/30 px-2 text-xs transition" data-journal-entry>
+           
             <!-- quote goes here, need to add a scroll instead of truncate -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000" viewBox="0 0 256 256"><path d="M216,48H40A16,16,0,0,0,24,64V224a15.84,15.84,0,0,0,9.25,14.5A16.05,16.05,0,0,0,40,240a15.89,15.89,0,0,0,10.25-3.78l.09-.07L83,208H216a16,16,0,0,0,16-16V64A16,16,0,0,0,216,48ZM84,140a12,12,0,1,1,12-12A12,12,0,0,1,84,140Zm44,0a12,12,0,1,1,12-12A12,12,0,0,1,128,140Zm44,0a12,12,0,1,1,12-12A12,12,0,0,1,172,140Z"></path></svg>
             <p class="interface-text-p text-xs truncate" data-journal-quote>
              
               <span class=""> Loading today’s entry…</span>

@@ -1,39 +1,49 @@
+// Put this ONCE in the <head> of every page (not inside the component):
+//
+// <link rel="preconnect" href="https://fonts.googleapis.com" />
+// <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+// <link rel="stylesheet"
+//   href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Space+Grotesk:wght@300..700&display=swap" />
+
 class SiteHeader extends HTMLElement {
   connectedCallback() {
+    const path = location.pathname;
+    const current = (href) =>
+      (href === "/" ? path === "/" : path.startsWith(href)) ? 'aria-current="page"' : "";
+
     this.innerHTML = `
-        <header class="px-6 py-2 mb-4">
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <header class="mb-4 px-6 py-2">
+        <div class="mx-auto block md:flex max-w-6xl items-baseline justify-between gap-4">
 
-<link
-  href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
-  rel="stylesheet"
-/>
+          <div class="flex min-w-0 items-baseline gap-2">
+            <p class="shrink-0 text-xs font-bold scramble-text" data-scramble="MATTHEW SUSTAITA">
+              <span class="sr-only">Matthew Sustaita</span>
+              <span aria-hidden="true">MATTHEW SUSTAITA</span>
+            </p>
+            <p class="hidden truncate text-xs text-olive-800/65 sm:block dark:text-olive-50/65 scramble-text-p"
+               data-scramble="Web Designer &amp; Developer">
+              <span class="sr-only">Web Designer &amp; Developer</span>
+              <span aria-hidden="true">Web Designer &amp; Developer</span>
+            </p>
+          </div>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Space+Grotesk:wght@300..700&display=swap');
-</style>
-          <nav
-            class=" mx-auto flex flex-row items-baseline max-w-6xl  justify-end"
-            aria-label="Main navigation"
-          >
-            <ul class="ml-3 scramble-text uppercase flex flex-row gap-2 items-baseline text-xs transition">
+          <nav class="shrink-0" aria-label="Main navigation">
+            <ul class="flex items-baseline gap-3 text-xs uppercase scramble-text">
+              <li><a href="/" ${current("/")} class="underline-offset-2 hover:underline aria-[current=page]:underline">Home</a></li>
+              <li><a href="/work/" ${current("/work/")} class="underline-offset-2 hover:underline aria-[current=page]:underline">Work</a></li>
+              <li><a href="/about/" ${current("/about/")} class="underline-offset-2 hover:underline aria-[current=page]:underline">About</a></li>
               <li>
-                <a href="/" class=" hover:underline">Home</a>
-              </li>
-              <li>
-                <a href="/work/" class=" hover:underline">Work</a>
-              </li>
-               <li>
-                <a href="/about/" class=" hover:underline">About</a>
-              </li>
-              <li class=" bg-olive-800 text-olive-50 px-1">
-                <a href="mailto:hello@mateos.studio" class="hover:underline   align-baseline ">hello@mateos.studio</a>
+                <a href="mailto:hello@mateos.studio"
+                   class="bg-olive-800 px-1.5 py-0.5 text-olive-50 underline-offset-2 hover:underline dark:bg-olive-50 dark:text-olive-900">
+                  hello@mateos.studio
+                </a>
               </li>
             </ul>
           </nav>
-        </header>
-      `;
+
+        </div>
+      </header>
+    `;
   }
 }
 
