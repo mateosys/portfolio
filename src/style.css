@@ -22,6 +22,10 @@
     font-weight: 400;
     font-style: normal;
   }
+
+  a {
+    @apply underline-offset-6
+  }
 }
 
 @layer components {
