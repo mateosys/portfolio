@@ -8,9 +8,10 @@ export default defineConfig({
 
   input: {
     home: resolve(import.meta.dirname, 'index.html'),
-    projectOne: resolve(import.meta.dirname, 'work/proj1/index.html'),
-    projectTwo: resolve(import.meta.dirname, 'work/proj2/index.html'),
-    projectThree: resolve(import.meta.dirname, 'work/proj3/index.html'),
+    designBranding: resolve(import.meta.dirname, 'work/design-branding/index.html'),
+    designComponents: resolve(import.meta.dirname, 'work/design-components/index.html'),
+    migration: resolve(import.meta.dirname, 'work/migration/index.html'),
+    work: resolve(import.meta.dirname, 'work/index.html'),
     journal: resolve(import.meta.dirname, 'journal/index.html'),
     about: resolve(import.meta.dirname, 'about/index.html'),
   },
