@@ -12,7 +12,8 @@ class SiteHeader extends HTMLElement {
       (href === "/" ? path === "/" : path.startsWith(href)) ? 'aria-current="page"' : "";
 
     this.innerHTML = `
-      <header class="mb-4 px-6 py-2">
+      <header class="mb-4 px-6 py-2 border-b border-b-olive-500/65 w-full min-w-lvw">
+      
         <div class="mx-auto block md:flex max-w-6xl items-baseline justify-between gap-4">
 
           <div class="flex min-w-0 items-baseline gap-2">

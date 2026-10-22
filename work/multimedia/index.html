@@ -1,136 +1,431 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Multimedia</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/components/multimedia.js"></script>
   </head>
   <body
     class="bg-olive-300 dark:bg-olive-950 text-olive-800 dark:text-olive-50 antialiased leading-8"
   >
-    <!-- <div
-      class="z-0 absolute inset-0 bg-radial from-olive-300 dark:from-olive-950 via-olive-300 dark:via-olive-950 to-olive-950/25 dark:to-olive-700/25"
-    ></div> -->
     <site-header class="z-20 absolute mx-auto container"></site-header>
     <main class="z-10 relative px-8 py-16 min-h-svh container">
-        <p class="mb-6 text-xs text-balance">
-          Before my career path in web design and UX/UI I was largely working with print and digital design. This consisted of brand designs, cover art, video promos, and other works.
-        </p>
+      <p class="mb-6 text-balance">
+        Before my career path in web design and UX/UI I was largely working with
+        print and digital design. This consisted of brand designs, cover art,
+        video promos, and other works.
+      </p>
       <div class="gap-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        <div
-          class="group flex justify-center items-center border border-olive-600 dark:border-olive-50 aspect-square hover:text-olive-800 text-sm text-center tracking-wide transition interface-text"
+        <!-- Fox Packing Emblem I -->
+        <button
+          type="button"
+          class="group relative flex justify-center items-center border border-olive-600 dark:border-olive-50 hover:rounded-tl-4xl focus-visible:rounded-tl-4xl outline-none focus-visible:ring-2 focus-visible:ring-amber-600 aspect-square overflow-hidden transition-all duration-300 cursor-pointer tile"
+          aria-label="Fox Packing Emblem I, Brand emblem · Print. Open details"
+          data-kind="img"
+          data-src="/images/Type%20Emblem%201.png"
+          data-alt="Fox Packing type emblem, version one"
+          data-title="Fox Packing Emblem I"
+          data-meta="Brand emblem · Print"
+          data-description=" Typographic Emblem for Fox Packaging for their 60th anniversary, the goal of the design was fun and playful re-imagining of they're typical logos and motifs."
         >
           <img
-            class="px-4 py-4"
+            class="p-4 max-h-full"
             src="/images/Type%20Emblem%201.png"
-            alt="Fox Packing Emblem"
+            alt="Fox Packing type emblem, version one"
           />
-        </div>
-        <div
-          class="group flex justify-center items-center border border-olive-600 dark:border-olive-50 aspect-square hover:text-olive-800 text-sm text-center tracking-wide transition interface-text"
+          <span class="caption" aria-hidden="true">
+            <span
+              class="caption-title scramble-text"
+              data-text="Fox Packing Emblem I"
+              ><span aria-hidden="true">Fox Packing Emblem I</span></span
+            >
+            <span class="block mt-1 text-olive-300 text-xs normal-case"
+              >Brand emblem · Print</span
+            >
+          </span>
+        </button>
+        <!-- Fox Packing Emblem II -->
+        <button
+          type="button"
+          class="group relative flex justify-center items-center border border-olive-600 dark:border-olive-50 hover:rounded-tl-4xl focus-visible:rounded-tl-4xl outline-none focus-visible:ring-2 focus-visible:ring-amber-600 aspect-square overflow-hidden transition-all duration-300 cursor-pointer tile"
+          aria-label="Fox Packing Emblem II, Brand emblem · Print. Open details"
+          data-kind="img"
+          data-src="/images/Type%20Emblem%202.png"
+          data-alt="Fox Packing type emblem, version two"
+          data-title="Fox Packing Emblem II"
+          data-meta="Brand emblem · Print"
+          data-description=" Typographic Emblem for Fox Packaging for their 60th anniversary, the goal of the design was fun and playful re-imagining of they're typical logos and motifs. "
         >
           <img
-            class="px-4 py-4"
+            class="p-4 max-h-full"
             src="/images/Type%20Emblem%202.png"
-            alt="Fox Packing Emblem"
+            alt="Fox Packing type emblem, version two"
           />
-        </div>
-        <div
-          class="group flex justify-center items-center border border-olive-600 dark:border-olive-50 aspect-square hover:text-olive-800 text-sm text-center tracking-wide transition interface-text"
+          <span class="caption" aria-hidden="true">
+            <span
+              class="caption-title scramble-text"
+              data-text="Fox Packing Emblem II"
+              ><span aria-hidden="true">Fox Packing Emblem II</span></span
+            >
+            <span class="block mt-1 text-olive-300 text-xs normal-case"
+              >Brand emblem · Print</span
+            >
+          </span>
+        </button>
+        <!-- Fox Packing Classic -->
+        <button
+          type="button"
+          class="group relative flex justify-center items-center border border-olive-600 dark:border-olive-50 hover:rounded-tl-4xl focus-visible:rounded-tl-4xl outline-none focus-visible:ring-2 focus-visible:ring-amber-600 aspect-square overflow-hidden transition-all duration-300 cursor-pointer tile"
+          aria-label="Fox Packing Classic, Brand mark · Print. Open details"
+          data-kind="img"
+          data-src="/images/Classic%20Design.png"
+          data-alt="Fox Packing classic design"
+          data-title="Fox Packing Classic"
+          data-meta="Brand mark · Print"
+          data-description=" Promo print design for Fox Packaging for their 60th anniversary, the goal of the design was fun and playful re-imagining of they're typical logos and motifs. "
         >
           <img
-            class="px-4 py-4"
+            class="p-4 max-h-full"
             src="/images/Classic%20Design.png"
-            alt="Fox Packing Emblem"
+            alt="Fox Packing classic design"
           />
-        </div>
-        <div
-          class="group flex justify-center items-center border border-olive-600 dark:border-olive-50 aspect-square hover:text-olive-800 text-sm text-center tracking-wide transition interface-text"
+          <span class="caption" aria-hidden="true">
+            <span
+              class="caption-title scramble-text"
+              data-text="Fox Packing Classic"
+              ><span aria-hidden="true">Fox Packing Classic</span></span
+            >
+            <span class="block mt-1 text-olive-300 text-xs normal-case"
+              >Brand mark · Print</span
+            >
+          </span>
+        </button>
+        <!-- Fox Packing Window -->
+        <button
+          type="button"
+          class="group relative flex justify-center items-center border border-olive-600 dark:border-olive-50 hover:rounded-tl-4xl focus-visible:rounded-tl-4xl outline-none focus-visible:ring-2 focus-visible:ring-amber-600 aspect-square overflow-hidden transition-all duration-300 cursor-pointer tile"
+          aria-label="Fox Packing Window, Brand mark · Print. Open details"
+          data-kind="img"
+          data-src="/images/Window%20Design.png"
+          data-alt="Fox Packing window design"
+          data-title="Fox Packing Window"
+          data-meta="Brand mark · Print"
+          data-description="  Promo print design for Fox Packaging for their 60th anniversary, the goal of the design was fun and playful re-imagining of they're typical logos and motifs.  "
         >
           <img
-            class="px-4 py-4"
+            class="p-4 max-h-full"
             src="/images/Window%20Design.png"
-            alt="Fox Packing Emblem"
+            alt="Fox Packing window design"
           />
-        </div>
-        <div
-          class="group flex justify-center items-center border border-olive-600 dark:border-olive-50 aspect-square hover:text-olive-800 text-sm text-center tracking-wide transition interface-text"
+          <span class="caption" aria-hidden="true">
+            <span
+              class="caption-title scramble-text"
+              data-text="Fox Packing Window"
+              ><span aria-hidden="true">Fox Packing Window</span></span
+            >
+            <span class="block mt-1 text-olive-300 text-xs normal-case"
+              >Brand mark · Print</span
+            >
+          </span>
+        </button>
+        <!-- Loris for Instagram -->
+        <button
+          type="button"
+          class="group relative flex justify-center items-center border border-olive-600 dark:border-olive-50 hover:rounded-tl-4xl focus-visible:rounded-tl-4xl outline-none focus-visible:ring-2 focus-visible:ring-amber-600 aspect-video sm:aspect-square overflow-hidden transition-all duration-300 cursor-pointer tile"
+          aria-label="Loris for Instagram, Video promo · Motion. Open details"
+          data-kind="video"
+          data-src="/images/Instagram%20Loris%20Vid-1.m4v"
+          data-alt="Loris Instagram video"
+          data-title="Loris for Instagram"
+          data-meta="Video promo · Motion"
+          data-description=" Instagram Promo for LORIS for her upcoming USA Tour spot in McAllen TX "
         >
-          <img
-            class="px-4 py-4"
-            src="/images/HF_1.png"
-            alt="Album Art"
-          />
-        </div>
-        <div
-          class="group flex justify-center items-center border border-olive-600 dark:border-olive-50 aspect-square hover:text-olive-800 text-sm text-center tracking-wide transition interface-text"
-        >
-          <img
-            class="px-4 py-4"
-            src="/images/B11ce_square.jpg"
-            alt="Promo Flyer"
-          />
-        </div>
-        <div
-          class="group flex justify-center items-center border border-olive-600 dark:border-olive-50 aspect-square hover:text-olive-800 text-sm text-center tracking-wide transition interface-text"
-        >
-          <img
-            class="px-4 py-4"
-            src="/images/blamdraftpromo.png"
-            alt="Blam Logo"
-          />
-        </div>
-          <div
-          class="group flex justify-center items-center border border-olive-600 dark:border-olive-50 aspect-square hover:text-olive-800 text-sm text-center tracking-wide transition interface-text"
-        >
-          <img
-            class="px-4 py-4"
-            src="/images/CDCno2.png"
-            alt="Blam Logo"
-          />
-        </div>
-            <div
-          class="group flex justify-center items-center border border-olive-600 dark:border-olive-50 aspect-square hover:text-olive-800 text-sm text-center tracking-wide transition interface-text"
-        >
-          <img
-            class="px-4 py-4"
-            src="/images/CYBERNETICO%20LETTERING.png"
-            alt="Blam Logo"
-          />
-        </div>
-        <div
-          class="group flex justify-center items-center border border-olive-600 dark:border-olive-50 aspect-video sm:aspect-square hover:text-olive-800 text-sm text-center tracking-wide transition interface-text"
-        >
-          <video class="px-4 py-4" autoplay muted loop playsinline>
-            <source
-              src="/images/Miraaa%20Bumper%203-1.m4v"
-              type="video/mp4"
-            />
-          </video>
-        </div>
-        <div
-          class="group flex justify-center items-center border border-olive-600 dark:border-olive-50 aspect-video sm:aspect-square hover:text-olive-800 text-sm text-center tracking-wide transition interface-text"
-        >
-          <video class="px-4 py-4" autoplay muted loop playsinline>
+          <video
+            class="p-4 max-h-full"
+            autoplay
+            muted
+            loop
+            playsinline
+            aria-label="Loris Instagram video"
+          >
             <source
               src="/images/Instagram%20Loris%20Vid-1.m4v"
               type="video/mp4"
             />
           </video>
-        </div>
-        <div
-          class="group flex justify-center items-center border border-olive-600 dark:border-olive-50 aspect-video sm:aspect-square hover:text-olive-800 text-sm text-center tracking-wide transition interface-text"
+          <span class="caption" aria-hidden="true">
+            <span
+              class="caption-title scramble-text"
+              data-text="Loris for Instagram"
+              ><span aria-hidden="true">Loris for Instagram</span></span
+            >
+            <span class="block mt-1 text-olive-300 text-xs normal-case"
+              >Video promo · Motion</span
+            >
+          </span>
+        </button>
+        <!-- Loris Loop -->
+        <button
+          type="button"
+          class="group relative flex justify-center items-center border border-olive-600 dark:border-olive-50 hover:rounded-tl-4xl focus-visible:rounded-tl-4xl outline-none focus-visible:ring-2 focus-visible:ring-amber-600 aspect-video sm:aspect-square overflow-hidden transition-all duration-300 cursor-pointer tile"
+          aria-label="Loris Loop, Motion. Open details"
+          data-kind="video"
+          data-src="/images/Loris0001-0480-1.m4v"
+          data-alt="Loris looping animation"
+          data-title="Loris Loop"
+          data-meta="Motion • 3D"
+          data-description=" Typographic logo made for LORIS USA tour "
         >
-          <video class="px-4 py-4" autoplay muted loop playsinline>
-            <source
-              src="/images/Loris0001-0480-1.m4v"
-              type="video/mp4"
-            />
+          <video
+            class="p-4 max-h-full"
+            autoplay
+            muted
+            loop
+            playsinline
+            aria-label="Loris looping animation"
+          >
+            <source src="/images/Loris0001-0480-1.m4v" type="video/mp4" />
           </video>
-        </div>
+          <span class="caption" aria-hidden="true">
+            <span class="caption-title scramble-text" data-text="Loris Loop"
+              ><span aria-hidden="true">Loris Loop</span></span
+            >
+            <span class="block mt-1 text-olive-300 text-xs normal-case"
+              >Motion</span
+            >
+          </span>
+        </button>
+        <!-- HF Album Art -->
+        <button
+          type="button"
+          class="group relative flex justify-center items-center border border-olive-600 dark:border-olive-50 hover:rounded-tl-4xl focus-visible:rounded-tl-4xl outline-none focus-visible:ring-2 focus-visible:ring-amber-600 aspect-square overflow-hidden transition-all duration-300 cursor-pointer tile"
+          aria-label="HF Album Art, Cover art. Open details"
+          data-kind="img"
+          data-src="/images/HF_1.png"
+          data-alt="Album cover art for HF"
+          data-title="HF Album Art"
+          data-meta="Cover art"
+          data-description="  "
+        >
+          <img
+            class="p-4 max-h-full"
+            src="/images/HF_1.png"
+            alt="Album cover art for HF"
+          />
+          <span class="caption" aria-hidden="true">
+            <span class="caption-title scramble-text" data-text="HF Album Art"
+              ><span aria-hidden="true">HF Album Art</span></span
+            >
+            <span class="block mt-1 text-olive-300 text-xs normal-case"
+              >Cover art</span
+            >
+          </span>
+        </button>
+        <!-- B11ce Promo -->
+        <button
+          type="button"
+          class="group relative flex justify-center items-center border border-olive-600 dark:border-olive-50 hover:rounded-tl-4xl focus-visible:rounded-tl-4xl outline-none focus-visible:ring-2 focus-visible:ring-amber-600 aspect-square overflow-hidden transition-all duration-300 cursor-pointer tile"
+          aria-label="B11ce Promo, Promo flyer. Open details"
+          data-kind="img"
+          data-src="/images/B11ce_square.jpg"
+          data-alt="Promo flyer for B11ce"
+          data-title="B11ce Promo"
+          data-meta="Promo flyer"
+          data-description="  "
+        >
+          <img
+            class="p-4 max-h-full"
+            src="/images/B11ce_square.jpg"
+            alt="Promo flyer for B11ce"
+          />
+          <span class="caption" aria-hidden="true">
+            <span class="caption-title scramble-text" data-text="B11ce Promo"
+              ><span aria-hidden="true">B11ce Promo</span></span
+            >
+            <span class="block mt-1 text-olive-300 text-xs normal-case"
+              >Promo flyer</span
+            >
+          </span>
+        </button>
+        <!-- Blam -->
+        <button
+          type="button"
+          class="group relative flex justify-center items-center border border-olive-600 dark:border-olive-50 hover:rounded-tl-4xl focus-visible:rounded-tl-4xl outline-none focus-visible:ring-2 focus-visible:ring-amber-600 aspect-square overflow-hidden transition-all duration-300 cursor-pointer tile"
+          aria-label="Blam, Logo · Promo. Open details"
+          data-kind="img"
+          data-src="/images/blamdraftpromo.png"
+          data-alt="Blam logo promo"
+          data-title="Blam"
+          data-meta="Logo · Promo"
+          data-description="  "
+        >
+          <img
+            class="p-4 max-h-full"
+            src="/images/blamdraftpromo.png"
+            alt="Blam logo promo"
+          />
+          <span class="caption" aria-hidden="true">
+            <span class="caption-title scramble-text" data-text="Blam"
+              ><span aria-hidden="true">Blam</span></span
+            >
+            <span class="block mt-1 text-olive-300 text-xs normal-case"
+              >Logo · Promo</span
+            >
+          </span>
+        </button>
+        <!-- CDC No. 2 -->
+        <button
+          type="button"
+          class="group relative flex justify-center items-center border border-olive-600 dark:border-olive-50 hover:rounded-tl-4xl focus-visible:rounded-tl-4xl outline-none focus-visible:ring-2 focus-visible:ring-amber-600 aspect-square overflow-hidden transition-all duration-300 cursor-pointer tile"
+          aria-label="CDC No. 2, Print design. Open details"
+          data-kind="img"
+          data-src="/images/CDCno2.png"
+          data-alt="CDC number two design"
+          data-title="CDC No. 2"
+          data-meta="Print design"
+          data-description="  "
+        >
+          <img
+            class="p-4 max-h-full"
+            src="/images/CDCno2.png"
+            alt="CDC number two design"
+          />
+          <span class="caption" aria-hidden="true">
+            <span class="caption-title scramble-text" data-text="CDC No. 2"
+              ><span aria-hidden="true">CDC No. 2</span></span
+            >
+            <span class="block mt-1 text-olive-300 text-xs normal-case"
+              >Print design</span
+            >
+          </span>
+        </button>
+        <!-- Cybernetico -->
+        <button
+          type="button"
+          class="group relative flex justify-center items-center border border-olive-600 dark:border-olive-50 hover:rounded-tl-4xl focus-visible:rounded-tl-4xl outline-none focus-visible:ring-2 focus-visible:ring-amber-600 aspect-square overflow-hidden transition-all duration-300 cursor-pointer tile"
+          aria-label="Cybernetico, Lettering. Open details"
+          data-kind="img"
+          data-src="/images/CYBERNETICO%20LETTERING.png"
+          data-alt="Cybernetico hand lettering"
+          data-title="Cybernetico"
+          data-meta="Lettering"
+          data-description="  "
+        >
+          <img
+            class="p-4 max-h-full"
+            src="/images/CYBERNETICO%20LETTERING.png"
+            alt="Cybernetico hand lettering"
+          />
+          <span class="caption" aria-hidden="true">
+            <span class="caption-title scramble-text" data-text="Cybernetico"
+              ><span aria-hidden="true">Cybernetico</span></span
+            >
+            <span class="block mt-1 text-olive-300 text-xs normal-case"
+              >Lettering</span
+            >
+          </span>
+        </button>
+        <!-- Miraaa Bumper -->
+        <button
+          type="button"
+          class="group relative flex justify-center items-center border border-olive-600 dark:border-olive-50 hover:rounded-tl-4xl focus-visible:rounded-tl-4xl outline-none focus-visible:ring-2 focus-visible:ring-amber-600 aspect-video sm:aspect-square overflow-hidden transition-all duration-300 cursor-pointer tile"
+          aria-label="Miraaa Bumper, Video promo · Motion. Open details"
+          data-kind="video"
+          data-src="/images/Miraaa%20Bumper%203-1.m4v"
+          data-alt="Miraaa bumper video"
+          data-title="Miraaa Bumper"
+          data-meta="Video promo · Motion"
+          data-description="  "
+        >
+          <video
+            class="p-4 max-h-full"
+            autoplay
+            muted
+            loop
+            playsinline
+            aria-label="Miraaa bumper video"
+          >
+            <source src="/images/Miraaa%20Bumper%203-1.m4v" type="video/mp4" />
+          </video>
+          <span class="caption" aria-hidden="true">
+            <span class="caption-title scramble-text" data-text="Miraaa Bumper"
+              ><span aria-hidden="true">Miraaa Bumper</span></span
+            >
+            <span class="block mt-1 text-olive-300 text-xs normal-case"
+              >Video promo · Motion</span
+            >
+          </span>
+        </button>
+        
       </div>
     </main>
+
+    <!-- One shared modal. multimedia.js fills it in from the tile you click. -->
+    <dialog
+      id="piece-modal"
+      aria-labelledby="modal-title"
+      class="bg-olive-300 dark:bg-olive-950 backdrop:bg-olive-950/70 backdrop:backdrop-blur-sm m-auto p-0 border border-olive-600 dark:border-olive-50 rounded-tl-4xl w-[min(64rem,calc(100%-2rem))] max-h-[calc(100svh-2rem)] text-olive-800 dark:text-olive-50"
+    >
+      <div class="gap-8 grid md:grid-cols-[3fr_2fr] p-6 md:p-10">
+        <!-- Left: the spinning piece (or the video) -->
+        <div class="flex justify-center items-center">
+          <div class="spin-stage" data-modal-stage>
+            <div class="spin-card">
+              <div class="spin-face spin-front">
+                <img data-modal-img src="" alt="" />
+              </div>
+              <div class="spin-face spin-back" aria-hidden="true">
+                <span class="text-amber-500 text-xs interface-text"
+                  >Matthew Sustaita</span
+                >
+                <span
+                  class="text-olive-50 text-lg interface-text"
+                  data-modal-back-title
+                ></span>
+                <span class="text-olive-300 text-xs interface-text"
+                  >Multimedia</span
+                >
+              </div>
+            </div>
+          </div>
+          <video
+            data-modal-video
+            class="hidden border border-olive-600 dark:border-olive-50 w-full"
+            controls
+            loop
+            playsinline
+          ></video>
+        </div>
+
+        <!-- Right: the write-up -->
+        <div class="flex flex-col gap-4 pl-4">
+          <button
+            type="button"
+            data-modal-close
+            class="self-end hover:bg-olive-800 dark:hover:bg-olive-50 px-2 py-1 border border-olive-600 dark:border-olive-50 hover:text-olive-50 dark:hover:text-olive-900 text-xs transition cursor-pointer interface-text"
+          >
+            Close ✕
+          </button>
+          <h2
+            id="modal-title"
+            class="text-amber-600 text-2xl scramble-text"
+            data-modal-title
+          >
+            <span aria-hidden="true"></span>
+          </h2>
+          <p
+            class="text-olive-600 dark:text-olive-300 text-xs interface-text"
+            data-modal-meta
+          ></p>
+          <p class="text-sm" data-modal-description></p>
+        </div>
+      </div>
+    </dialog>
+
     <site-footer></site-footer>
   </body>
 </html>
